@@ -10,7 +10,7 @@ justify-content: space-between;
 align-content: center;
 background-color: #3e93ee;
 width: 100%;
-height: 80px;
+height: 60px;
 }
 .image_navbar{
 display: flex;
@@ -19,7 +19,7 @@ align-items: center;
 }
 
 #logo{
-width: 110px;
+width: 90px;
 height: max-content;
 align-items: center;
 justify-items: center;
@@ -58,32 +58,6 @@ border-bottom: 2px solid;
     height: 100vh;
   }
   
-  /* Next & previous buttons */
-  .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-  }
-  
-  /* Position the "next button" to the right */
-  .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-  
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-  }
   
   /* Caption text */
   .slideshow-text {
@@ -132,4 +106,128 @@ border-bottom: 2px solid;
     to {opacity: 1}
   } 
 
+  /* ----------------------------------------------Description Section-------------------------------------------------- */
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+    text-align: center;
+  }
+
+  .description h1{
+    font-size: 40px;
+    font-weight: normal;
+    margin: 15px;
+   
+  }
+
+  .description p{
+    color:#666;
+    line-height: 1.52941;
+    margin-bottom: 40px;
+  }
+  /* ------------------------------------Bakgound Image---------------------------------------------------------------- */
+
+
+  .container {
+    background: url("../img/7.jpg");
+    /* background: rgb(0, 0, 0); 
+    background: rgba(0, 0, 0, 0.5);  */
+    color: #f1f1f1; 
+    width: 100%;
+    height: 250px;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    
+  }
   
+  .container .content {
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 250px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+  
+  }
+
+  .content h3{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding:5px 20px;
+    margin-top: 70px;
+    font-weight: normal;
+  }
+
+  .content h4{
+    margin-top: 0px;
+    font-weight: normal;
+  }
+
+  /* ------------------------------------------------------------Categorias-------------------------------------------------------------------- */
+
+  .categiries h2{
+    text-align: center;
+    font-size: 40px;
+    font-weight: normal
+  }
+  
+  /* Three columns side by side */
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+/* Add some shadows to create a card effect */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Some left and right padding inside the container */
+.cards {
+  padding: 0 16px;
+}
+
+/* Clear floats */
+.cards::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
