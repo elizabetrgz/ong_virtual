@@ -134,11 +134,9 @@ border-bottom: 2px solid;
 
   .container {
     background: url("../img/7.jpg");
-    /* background: rgb(0, 0, 0); 
-    background: rgba(0, 0, 0, 0.5);  */
     color: #f1f1f1; 
     width: 100%;
-    height: 250px;
+    height: 350px;
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
@@ -148,7 +146,7 @@ border-bottom: 2px solid;
   .container .content {
     background: rgba(0,0,0,0.5);
     width: 100%;
-    height: 250px;
+    height: 350px;
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -157,6 +155,7 @@ border-bottom: 2px solid;
   }
 
   .content h3{
+    font-size: 25px;
     height: 100px;
     display: flex;
     align-items: center;
@@ -179,30 +178,17 @@ border-bottom: 2px solid;
     margin: 60px 0px;
   }
 
-  .categories h3{
-    text-align: center;
-    font-weight: bolder;
-    font-size: 30px;
-  }
-
-  /* Three columns side by side */
-.column {
-  float: left;
-  width: 30%;
-  margin-bottom: 16px;
-  padding: 0 8px;
+.categories h3{
+  text-align: center;
+  font-weight: bolder;
+  font-size: 30px;
 }
+
+
 .categories img{
   height: 130px;
 }
 
-/* Display the columns below each other instead of side by side on small screens */
-@media screen and (max-width: 650px) {
-  .column {
-    width: 100%;
-    display: block;
-  }
-}
 .row{
   display: flex;
   flex-direction: row;
@@ -211,27 +197,20 @@ border-bottom: 2px solid;
   justify-content: center
 }
 
-/* Add some shadows to create a card effect */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 285px;
   height: 300px;
+  margin: 30px 35px;
 }
 
-/* Some left and right padding inside the container */
 .cards {
   padding: 0 16px;
 }
-
-/* Clear floats */
-/* .cards::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
-} */
 
 .title {
   color: grey;
@@ -241,16 +220,28 @@ border-bottom: 2px solid;
   border: none;
   outline: 0;
   display: inline-block;
-  padding: 10px;
+  padding: 8px;
   color: white;
   background-color:#3d95f3;
   text-align: center;
   cursor: pointer;
-  width: 100%;
+  width: 240px;
   border-radius: 10px;
+  font-size: 18px;
+  margin-top: 7px;
 }
 
 .button:hover {
   background-color: #0057b4;
 }
 
+.card-h3{
+  height: 95px;
+}
+
+.card-h3 h3{
+  font-size: 25px;
+  margin:21px 0px;
+}
+
+/* ------------------------------------------------------Footer----------------------------------------------- */
