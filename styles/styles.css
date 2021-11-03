@@ -244,4 +244,35 @@ border-bottom: 2px solid;
   margin:21px 0px;
 }
 
-/* ------------------------------------------------------Footer----------------------------------------------- */
+/* ------------------------------------------------------Sction Contact----------------------------------------------- */
+.contact{
+  background-color: #F3F3F9 ;
+}
+.contact h2{
+  padding-top: 15px;
+  text-align: center;
+  font-size: 60px;
+  font-weight: normal;
+  margin: 60px 0px;
+}
+
+.contact-container{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+
+}
+
+.contact-container-dates{
+  margin: 25px 55px 0px;
+}
+
+.contact-container-dates .fab{
+  margin-right: 5px;
+}
+
+.contact-container-dates .fas{
+  margin-right: 5px;
+}
+/* ---------------------------------------------------------Footer---------------------------------------------------------- */
