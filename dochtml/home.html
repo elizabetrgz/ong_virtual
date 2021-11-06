@@ -17,10 +17,23 @@
     <div class="navbar">
       <div class="image_navbar"><img id="logo" alt="logo" src="../img/image1.png"></div>
       <div class="menu">
-        <a class="menu_item">ONG</a>
-        <a class="menu_item">ONG</a>
-        <a class="menu_item">ONG</a>
-        <a class="menu_item">ONG</a>
+        <a href="#how" class="menu_item">Quiénes Somos</a>
+        <div class="dropdown">
+          <a  href="#cat" onmouseover="myFunctionDropdown()" class="dropbtn menu_item">Categorías <div class="icon-dropdown" ><i class="fas fa-chevron-down" ></div></i></a>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#">Familia</a>
+            <a href="#">Violencia de Género</a>
+            <a href="#">Adicciones</a>
+            <a href="#">Personas en Situación de Calle</a>
+            <a href="#">Ollas Populares</a>
+            <a href="#">Refugios de Animales</a>
+            <a href="#">Discriminación</a>
+            <a href="#">Personas con Capacidades Diferentes</a>
+          </div>
+         
+        </div>
+        <a href="#cnt" class="menu_item">Contacto</a>
+        <a class="menu_item">Intoduce tu ONG</a>
       </div>
     </div>
   </nav>
@@ -29,18 +42,16 @@
   <div class="slideshow-container">
     <div class="mySlides fade">
       <div class="slideshow-text">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias sit in voluptas fugit, temporibus
-          quisquam pariatur rerum explicabo necessitatibus facilis reprehenderit reiciendis cum porro.
-          Ducimus, ex a. Adipisci, accusamus a.</p>
+        <p>" Siempre que dudes lo lejos que puedes llegar. Solo recuerda lo lejos que has llegado. Recuerda todo lo que
+          has enfrentado, todas las batallas que has ganado y todos los temores que has superado..."</p>
       </div>
       <img src="../img/1.png" style="width:100%; height: 100%">
     </div>
 
     <div class="mySlides fade">
       <div class="slideshow-text">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias sit in voluptas fugit, temporibus
-          quisquam pariatur rerum explicabo necessitatibus facilis reprehenderit reiciendis cum porro.
-          Ducimus, ex a. Adipisci, accusamus a.</p>
+        <p> " Dentro de veinte años a partir de ahora te arrepentirás de las cosas que no hiciste, así que suelta las
+          amarras y navega fuera de tu zona de confort, busca el viento en tus velas. Explora, Sueña, Descubre... "</p>
       </div>
       <img src="../img/2.png" style="width:100%; height: 100%">
 
@@ -48,22 +59,22 @@
 
     <div class="mySlides fade">
       <div class="slideshow-text">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias sit in voluptas fugit, temporibus
-          quisquam pariatur rerum explicabo necessitatibus facilis reprehenderit reiciendis cum porro.
-          Ducimus, ex a. Adipisci, accusamus a.</p>
+        <p>" Algún día todo tendrá perfecto sentido. Así que por ahora ríete de la confusión, sonríe a través de las
+          lágrimas y sigue recordándote a ti mismo que todo sucede por una razón... "</p>
       </div>
-      <img src="../img/3.png" style="width:100%; height: 100%">
+      <img src="../img/21.jpg" style="width:100%; height: 100%">
     </div>
 
-    <div style="text-align:center; margin-top: 20px">
+    <div
+      style="margin-top: 20px;margin-top: 20px; position: absolute;display: flex; width: 100%; justify-content: center;">
       <span class="dot" onclick="currentSlide(1)"></span>
       <span class="dot" onclick="currentSlide(2)"></span>
       <span class="dot" onclick="currentSlide(3)"></span>
     </div>
   </div>
 
-  <div class="description">
-    <h1>Quienes Somos</h1>
+  <div  id="how" class="description">
+    <h2>Quienes Somos</h2>
     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos ea, repellat sed tempora pariatur aut
       ex quae voluptate officiis omnis nihil quo. Asperiores debitis consequatur sed soluta pariatur inventore
       quo.
@@ -80,13 +91,13 @@
 
   <div class="container">
     <div class="content">
-      <h3>"La vida es una oportunidad, benefíciate de ella. La vida es belleza, admírala. La vida es un sueño,
-        alcánzalo. La vida es un desafío, enfréntalo, La vida es un juego, juégalo.."</h3>
+      <h3>" La vida es una oportunidad, benefíciate de ella. La vida es belleza, admírala. La vida es un sueño,
+        alcánzalo. La vida es un desafío, enfréntalo, La vida es un juego, juégalo... "</h3>
       <h4>Madre Teresa de Calcuta</h4>
     </div>
   </div>
 
-  <section class="categories">
+  <section id="cat" class="categories">
     <h2>Categorías</h2>
 
     <div class="row">
@@ -183,26 +194,33 @@
     </div>
   </section>
 
-  <section>
+  <section id="cnt">
     <div class="contact">
       <h2>Contacto</h2>
       <div class="contact-container">
-       <div class="contact-container-dates">
-        <p><i class="fas fa-phone"></i> 093627387</p>
-        <p><i class="fas fa-envelope"></i>ongvirtual@gmail.com</span></p>
-       </div>
-       <div class="contact-container-dates">
-        <p><i class="fab fa-facebook-square"></i>Facebook</p>
-        <p><i class="fab fa-instagram-square"></i>Instagram</p>
-       </div>
+        <div class="contact-container-dates">
+          <p><i class="fas fa-phone"></i> 093627387</p>
+          <p><i class="fas fa-envelope"></i>ongvirtual@gmail.com</span></p>
+        </div>
+        <div class="contact-container-dates">
+          <p><i class="fab fa-facebook-square"></i>Facebook</p>
+          <p><i class="fab fa-instagram-square"></i>Instagram</p>
+        </div>
         <div><iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3362.3005907171855!2d-56.191112782201124!3d-34.89429928598559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x959f803a6f55c911%3A0xa9bfd540831d3a8d!2sANONG%20(Asociaci%C3%B3n%20Nacional%20de%20ONG%20Orientadas%20al%20Desarrollo)!5e0!3m2!1ses-419!2suy!4v1635949585937!5m2!1ses-419!2suy"
-            width="395px" height="240px" style=" box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);border-radius: 5px; margin:0px 20px 30px;" allowfullscreen="" loading="lazy"></iframe></div>
+            width="420px" height="158pxpx"
+            style=" box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);border-radius: 5px; margin:0px 20px 30px;"
+            allowfullscreen="" loading="lazy"></iframe></div>
       </div>
     </div>
   </section>
 
-  <footer></footer>
+  <footer>
+    <div>
+      <h4>“Hemos venido a este mundo como hermanos; caminemos, pues, dándonos la mano y uno delante de otro.” </h4>
+      <p>William Shakespeare</p>
+    </div>
+  </footer>
 
   <script src="../functionalities/scripts.js"></script>
   <script src="https://kit.fontawesome.com/b9132d8f3b.js" crossorigin="anonymous"></script>
