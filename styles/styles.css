@@ -93,7 +93,7 @@ background-color: #002a58;
     background-color: rgba(0,0,0,0.5);
   }
 
-  .slideshow-container::before{
+  /* .slideshow-container::before{
     content: '';
     background-color: rgba(0,0,0,.5);
     z-index: 3;
@@ -103,7 +103,7 @@ background-color: #002a58;
     left: 0;
     right: 0;
     position: absolute; 
-  }
+  } */
   
   /* Hide the images by default */
   .mySlides {
