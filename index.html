@@ -227,27 +227,40 @@
     <span onclick="document.getElementById('id01').style.display='none'" onclick="document.getElementById('id01').style.display='none'"  class="close" title="Close Modal">times;</span>
     <form class="modal-content" action="/action_page.php">
       <div class="container-modal">
-        <h1>Sign Up</h1>
-        <p>Please fill in this form to create an account.</p>
-        <hr>
-        <label for="email"><b>Email</b></label>
+        <h1>Datos a llenar de la ONG que desea ingresar </h1>
+        <p>Por favor debe ingresar estos datos par ingresar su ONG</p>
+        <hr>  
+        
+        <label for="name-ong"><b>Nombre de la ONG</b></label>
+        <input type="text" placeholder="Nombre de la ONG" name="name-ong" required>
+
+        <label for="contact-number"><b>Introduzca un número de contacto</b></label>
+        <input type="text" placeholder="Numero de contacto" name="contact-number" required>
+
+        <label for="email"><b>Correo Electrónico</b></label>
         <input type="text" placeholder="Enter Email" name="email" required>
-  
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-  
-        <label for="psw-repeat"><b>Repeat Password</b></label>
-        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-  
-        <label>
-          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-        </label>
-  
-        <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+        <label for="descripcion"><b>Describa brevemente el trabajo que realiza su ONG</b></label>
+        <textarea  name="descripcion" required style="width: 100%; height: 200px; margin-top: 15px; margin-bottom: 15px;"></textarea>
+
+        <label for="image"><b>Puede añadir una imagen que represente su ONG</b></label>
+        <input type="image" name="image" style="width: 100%; height: 200px; margin-top: 15px; margin-bottom: 15px;">
+
+        <div action="" class="dates-person">
+          <h1 style="margin-bottom: 8px;">Datos de la persona que ingresa la ONG</h1>
+          <label for="name" ><b>Nombre y Apellidos</b></label>
+          <input type="text" name="name" required>
+          <label for="email-person"><b>Correo Electrónico</b></label>
+          <input type="text" name="email-person" required>
+          <label for="phone-number"><b>Número de Contacto</b></label>
+          <input type="text" name="phone-number" required>
+        </div>
+
+        <p>Al crear una cuenta, acepta nuestros<a href="#" style="color:dodgerblue">Terminos y Privacidad</a>.</p>
   
         <div class="clearfix">
-          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-          <button type="submit" class="signup">Sign Up</button>
+          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
+          <button type="submit" class="signup">Ingresar ONG</button>
         </div>
       </div>
     
