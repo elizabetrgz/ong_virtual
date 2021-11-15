@@ -15,16 +15,16 @@ function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
   var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
+  if (n > slides.length) { slideIndex = 1 }
+  if (n < 1) { slideIndex = slides.length }
   for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+    slides[i].style.display = "none";
   }
   for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace("active", "");
+    dots[i].className = dots[i].className.replace("active", "");
   }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += "active";
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += "active";
 }
 
 var slideIndex = 0;
@@ -37,8 +37,8 @@ function showSlides() {
     slides[i].style.display = "none";
   }
   slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  slides[slideIndex-1].style.display = "block";
+  if (slideIndex > slides.length) { slideIndex = 1 }
+  slides[slideIndex - 1].style.display = "block";
   setTimeout(showSlides, 6000); // Change image every 2 seconds
 }
 
@@ -48,7 +48,7 @@ function myFunctionDropdown() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (!event.target.matches('.dropbtn')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
@@ -61,22 +61,37 @@ window.onclick = function(event) {
   }
 }
 
+
+let ubicacionPrincipal = window.pageYOffset;
+
+window.onscroll = function() {
+  let Desplazamiento = window.pageYOffset;
+  if (ubicacionPrincipal >= Desplazamiento) {
+    document.getElementById('myDropdown').style.display ='auto';
+  }
+  else{
+    document.getElementById('myDropdown').style.display = 'none';
+  }
+  ubicacionPrincipal = Desplazamiento;
+
+}
+
 //--------------------------------------------------Modal Form-----------------------------------------------///
 
 var modal = document.getElementById('id01');
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none"; 
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
 
-    }
   }
+}
 
-  window.onclick = window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-        
-    }
+window.onclick = window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+
   }
+}
 
