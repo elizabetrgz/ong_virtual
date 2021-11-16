@@ -24,10 +24,11 @@ align-items: center;
 }
 
 #logo{
-width: 105px;
+width: 80px;
 height: max-content;
 align-items: center;
 justify-items: center;
+margin-left: 15px;
 }
 
 .menu{
