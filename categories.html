@@ -6,9 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/categories.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Categorías</title>
 </head>
 <body>
+
+   <nav>
+    <div class="navbar">
+      <div class="image_navbar"><img id="logo" alt="logo" src="./img/image1.png"></div>
+      <div class="menu">
+        <a href="#how" class="menu_item">Quiénes Somos</a>
+        <div class="dropdown">
+          <a  href="#cat" onmouseover="myFunctionDropdown()" class="dropbtn menu_item">Categorías <div class="icon-dropdown" ><i class="fas fa-chevron-down" ></div></i></a>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#">Familia</a>
+            <a href="#">Violencia de Género</a>
+            <a href="#">Adicciones</a>
+            <a href="#">Personas en Situación de Calle</a>
+            <a href="#">Ollas Populares</a>
+            <a href="#">Refugios de Animales</a>
+            <a href="#">Discriminación</a>
+            <a href="#">Personas con Capacidades Diferentes</a>
+          </div>
+         
+        </div>
+        <a href="#cnt" class="menu_item">Contacto</a>
+        <a class="menu_item" onclick="document.getElementById('id01').style.display='block'" >Introduce tu ONG</a>
+    </div>
+   </nav>
+
     <div id="myBtnContainer">
         <h2>ONG Categorías</h2>
         <div  class="myBtnContainer-cont">
@@ -21,6 +48,7 @@
 
         </div>
       </div>
+      
       <div class="categories-container">
       <aside>
           <div class="aside-h1">
@@ -79,6 +107,34 @@
         <div class="filterDiv animals">ONG</div>
       </div>
     </div>
+    <section id="cnt">
+      <div class="contact">
+        <h2>Contacto</h2>
+        <div class="contact-container">
+          <div class="contact-container-dates">
+            <p><i class="fas fa-phone"></i> 093627387</p>
+            <p><i class="fas fa-envelope"></i>ongvirtual@gmail.com</span></p>
+          </div>
+          <div class="contact-container-dates">
+            <p><i class="fab fa-facebook-square"></i>Facebook</p>
+            <p><i class="fab fa-instagram-square"></i>Instagram</p>
+          </div>
+          <div><iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3362.3005907171855!2d-56.191112782201124!3d-34.89429928598559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x959f803a6f55c911%3A0xa9bfd540831d3a8d!2sANONG%20(Asociaci%C3%B3n%20Nacional%20de%20ONG%20Orientadas%20al%20Desarrollo)!5e0!3m2!1ses-419!2suy!4v1635949585937!5m2!1ses-419!2suy"
+              width="420px" height="158pxpx"
+              style=" box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);border-radius: 5px; margin:0px 20px 30px;"
+              allowfullscreen="" loading="lazy"></iframe></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <h4>“Hemos venido a este mundo como hermanos; caminemos, pues, dándonos la mano y uno delante de otro.” </h4>
+        <p>William Shakespeare</p>
+      </div>
+    </footer>
+  
 
 <script src="./js/categories.js"></script>
 </body>
