@@ -1,10 +1,18 @@
-from flask import Flask
+from flask import Flask, Response
 from flask import request
 from flask import render_template
 import sqlite3
 
 
-# app = Flask(__name__)
+app = Flask(__name__, template_folder='web/templates', static_folder='web/static')
+
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/categories')
+def categories():
+    return render_template('categories.html')
 #
 #
 # @app.route('/api/ongs/')
@@ -120,9 +128,9 @@ import sqlite3
 #
 #
 # init_db()
-# if __name__ == '__main__':
-#     app.run(debug=True)
-#
+if __name__ == '__main__':
+    app.run(debug=True)
+
 #
 #'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''appi para el login del administrador'''''''''''''''''''''''''''''''''''''''
 #
