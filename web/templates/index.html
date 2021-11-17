@@ -1,19 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
+{% extends 'layout.html' %}
+
+{% block styles %}
   <link rel="stylesheet" type="text/css" href="/static/styles/styles.css">
-  <link rel="stylesheet" type="text/css" href="/static/styles/form.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+{% endblock %}
 
-  <title>OngVirtual</title>
 
-</head>
 
-<body>
+{% block content %}
   <div class="slideshow-container">
     <div class="mySlides fade">
       <div class="slideshow-text">
@@ -169,10 +166,10 @@
       </div>
     </div>
   </section>
+{% endblock %}
 
+{% block scripts %}
   <script src="/static/js/scripts.js"></script>
   <script src="https://kit.fontawesome.com/b9132d8f3b.js" crossorigin="anonymous"></script>
+{% endblock %}
 
-</body>
-
-</html>
