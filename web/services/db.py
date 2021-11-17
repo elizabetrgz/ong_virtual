@@ -1,4 +1,5 @@
 import sqlite3
+from flask import app
 
 DB_NAME = 'ong.sqlite'
 
@@ -46,3 +47,15 @@ def seed_db():
     
     cur.connection.commit()
     cur.connection.close()
+
+
+def get_ongs():
+    cur = get_cursor()
+    cur.execute('SELECT * FROM ongs')
+    list_ong = cur.fetchall()
+    cur.connection.close()
+    return list_ong
+    
+
+
+
