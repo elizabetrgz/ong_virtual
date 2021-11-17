@@ -8,7 +8,7 @@ app = Flask(__name__, template_folder='web/templates', static_folder='web/static
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
 
 @app.route('/categories')
 def categories():

@@ -1,4 +1,3 @@
-from re import T
 from flask import Flask, Response
 from flask import request
 from flask import render_template
@@ -18,4 +17,4 @@ def categories():
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(port=5001)
+    app.run(port = 5001)
