@@ -1,10 +1,13 @@
 from flask import Flask, Response
 from flask import request
 from flask import render_template
-import sqlite3
+from web.services import db
 
 
 app = Flask(__name__, template_folder='web/templates', static_folder='web/static')
+
+db.init_db()
+db.seed_db()
 
 @app.route('/')
 def home():
