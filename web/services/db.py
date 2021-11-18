@@ -57,5 +57,19 @@ def get_ongs():
     return list_ong
     
 
+def create_ongs(name, description):
+    # if name is None:
+    #     return "The name is required", 400
+    # if len(name) < 3 or len(name) > 50:
+    #     return "Invalid name length", 400
+    # if description is None:
+    #     return "The description is required", 400
+    # if len(description) < 3 or len(description) > 100:
+    #     return "Invalid description length", 400
 
+    cur = get_cursor()
+    cur.execute(f'INSERT INTO ongs (name, description) VALUES (\'{name}\', \'{description}\')')
+    cur.connection.commit()
+    cur.connection.close()
+    return True
 

@@ -1,0 +1,29 @@
+{% extends 'admin/layout.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="/static/styles/form.css">
+{% endblock %}
+
+{% block content%}
+<form class="" action="/admin/ongs/save" method="post">
+    <h1>Datos a llenar de la ONG que desea ingresar </h1>
+    <p>Por favor debe ingresar estos datos par ingresar su ONG</p>
+    <hr>
+
+    <label for="name"><b>Nombre de la ONG</b></label>
+    <input type="text" placeholder="Nombre de la ONG" name="name" required>
+
+    <label for="descripcion"><b>Describa brevemente el trabajo que realiza su ONG</b></label>
+    <textarea name="description" required
+        style="width: 100%; height: 200px; margin-top: 15px; margin-bottom: 15px;"></textarea>
+
+    <div class="clearfix">
+        <button type="button" class="cancelbtn">Cancelar</button>
+        <button type="submit" class="signup">Crear</button>
+    </div>
+</form>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+

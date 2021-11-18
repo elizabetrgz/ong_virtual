@@ -1,0 +1,33 @@
+{% extends 'admin/layout.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="/static/styles/table.css">
+{% endblock %}
+
+{% block content%}
+<div>
+  <label class="label-filter" for="filter"><b>Filtrar por nombre:</b></label>
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." name="filter">
+  </div>
+
+  
+  <table id="myTable">
+    <tr class="header">
+      <th style="width:60%;">Nombre de las ONG</th>
+      <th style="width:40%;">Estado</th>
+    </tr>
+  
+    {% for d in ongs %} 
+     <tr> 
+      <td>{{d['name']}}</td>
+      <td>{{d['description']}}</td>
+     </tr>
+    {% endfor %}
+  
+  </table>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/table.js"></script>
+{% endblock %}
+
