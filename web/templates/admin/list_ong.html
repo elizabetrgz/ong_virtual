@@ -13,21 +13,35 @@
   
   <table id="myTable">
     <tr class="header">
-      <th style="width:60%;">Nombre de las ONG</th>
-      <th style="width:40%;">Estado</th>
+      <th style="width:5%;" >Id</th>
+      <th style="width:20%;">Nombre de las ONG</th>
+      <th style="width:30%;">Descripción</th>
+      <th style="width:10%;"> Número de contacto</th>
+      <th style="width:10%;"> Dirección</th>
+      <th style="width: 10%;">Imagen</th>
+      <th style="width:5%;"></th>
     </tr>
-  
+
     {% for d in ongs %} 
-     <tr> 
+     <tr>
+      <td>{{d['id']}}</td> 
       <td>{{d['name']}}</td>
       <td>{{d['description']}}</td>
+      <td>{{d['númeroContacto']}}</td>
+      <td>{{d['direccion']}}</td>
+      <td>{{d['imagen']}}</td>
+      <td><button onclick="deleteOng('{{d['id']}}', '{{d['name']}}')">Borrar</button></td>
+      
      </tr>
     {% endfor %}
   
   </table>
+
+  
 {% endblock %}
 
 {% block scripts %}
 <script src="/static/js/table.js"></script>
+
 {% endblock %}
 

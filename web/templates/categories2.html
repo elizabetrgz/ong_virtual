@@ -64,19 +64,10 @@
   </aside>
 
   <div class="container">
-    <div class="filterDiv cars">ONG</div>
-    <div class="filterDiv colors fruits">ONG</div>
-    <div class="filterDiv cars">ONG</div>
-    <div class="filterDiv colors">ONG</div>
-    <div class="filterDiv cars animals">ONG</div>
-    <div class="filterDiv colors">ONG</div>
-    <div class="filterDiv animals">ONG</div>
-    <div class="filterDiv animals">ONG</div>
-    <div class="filterDiv fruits">ONG</div>
-    <div class="filterDiv fruits animals">ONG</div>
-    <div class="filterDiv fruits">ONG</div>
-    <div class="filterDiv fruits">ONG</div>
-    <div class="filterDiv animals">ONG</div>
+    {% for d in ongs %} 
+    <div class="filterDiv cars">{{d['name']}}</div>
+    {% endfor%}
+   
   </div>
 </div>
 {% endblock %}

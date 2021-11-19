@@ -19,3 +19,20 @@ function myFunction() {
     }
   }
 }
+
+function deleteOng(id, name){
+  
+  
+  var r = confirm("Estas seguro que desea eliminar la ong:" + name +"?")
+  if (r == true){
+    $.ajax({
+      url: '/admin/ongs/delete/'+ id,
+      type: 'DELETE',
+      success: function(result) {
+        location.reload();
+      }
+    });
+  }
+ 
+}
+

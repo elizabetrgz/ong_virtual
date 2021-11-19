@@ -15,7 +15,7 @@ def home():
 
 @app.route('/categories2')
 def categories():
-    return render_template('categories2.html')
+    return render_template('categories2.html', ongs = db.get_ongs()) 
 
 @app.route('/admin/ongs')
 def tables():
@@ -31,6 +31,11 @@ def create_ong():
     description = request.form['description']
     db.create_ongs(name, description)
     return redirect('/admin/ongs')
+
+@app.route('/admin/ongs/delete/<id>', methods=['DELETE'])
+def delete_ong(id):
+    db.delete_ong(id)
+    return 'delete'
 
 
 if __name__ == '__main__':
