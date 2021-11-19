@@ -19,7 +19,7 @@ def get_cursor():
 
 def init_db():
     cursor = get_cursor()
-    cursor.execute("CREATE TABLE IF NOT EXISTS ongs (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(50), description VARCHAR(500))")
+    cursor.execute("CREATE TABLE IF NOT EXISTS ongs (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(50), description VARCHAR(500)), númeroDeContacto VARCHAR(10), direccio")
     cursor.connection.commit()
     print("Ong table created")
     cursor.connection.close()
@@ -73,3 +73,15 @@ def create_ongs(name, description):
     cur.connection.close()
     return True
 
+def delete_ong(id_ongs):
+    cur = get_cursor()
+    cur.execute('SELECT * FROM ongs WHERE id =' + id_ongs)
+    n = cur.fetchall()
+    if len(n) == 0:
+        cur.connection.close()
+        return None
+
+    cur.execute('DELETE FROM ongs WHERE id = '+id_ongs)
+    cur.connection.commit()
+    cur.connection.close()
+    return True
