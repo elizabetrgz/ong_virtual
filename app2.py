@@ -1,3 +1,4 @@
+import re
 from flask import Flask, Response,redirect, make_response
 from flask import request
 from flask import render_template
@@ -21,7 +22,12 @@ def categories():
 
 @app.route('/admin/ongs')
 def tables():
-    return render_template('admin/list_ong.html', ongs = db.get_ongs())
+    ticket = request.cookies.get('ticket')
+    print (ticket)
+    if ticket == None:
+        return redirect('/auth/login')
+    else:    
+        return render_template('admin/list_ong.html', ongs = db.get_ongs())
 
 @app.route('/admin/ongs/new')
 def new_ong():
@@ -39,16 +45,23 @@ def delete_ong(id):
     db.delete_ong(id)
     return 'delete'
 
-@app.route('/admin/user')
-def create_ticket():
-    resp = make_response()
-    resp.set_cookie('ticket', '4254352345243635464')
-    return resp
+# @app.route('/admin/user')
+# def create_ticket():
+#     resp = make_response()
+#     resp.set_cookie('ticket', '4254352345243635464')
+#     return resp
 
 
 @app.route('/auth/login')
 def login():
     return render_template('auth/login.html')
+
+
+@app.route('/auth/login', methods=['POST'])
+def loguin2():
+    resp = make_response(redirect('/admin/ongs'))
+    resp.set_cookie('ticket', '4254352345243635464')
+    return resp
 
 
 if __name__ == '__main__':
