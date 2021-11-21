@@ -137,6 +137,7 @@ def create_ongs(id, name, description, contact_number, address, manager_name, ma
     cur.connection.close()
     return True
 
+
 def delete_ong(id_ongs):
     cur = get_cursor()
     cur.execute('SELECT * FROM ongs WHERE id =' + id_ongs)
@@ -149,5 +150,21 @@ def delete_ong(id_ongs):
     cur.connection.commit()
     cur.connection.close()
     return True
+
+
+def search_user(email, password):
+    cur =get_cursor()
+    query = f'SELECT * FROM users WHERE email= "{email}" and password= "{password}"'
+    print (query)
+    cur.execute(query)
+    list_users = cur.fetchall()
+    cur.connection.close()
+    return list_users
+
+
+
+    
+
+
 # ---------------------------
 

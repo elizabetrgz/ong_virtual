@@ -10,16 +10,22 @@
 </head>
 <body>
     <form action="/auth/login" method="post">
-        <div class="imgcontainer">
+        <!-- <div class="imgcontainer">
           <img src="/static/img/image.png" alt="Avatar" class="avatar">
         </div>
-      
+       -->
         <div class="container">
-          <label for="uname"><b>Nombre del administrador/a</b></label>
-          <input type="text" placeholder="Ingrese su nombre" name="uname" required>
+          {% if error == True %}
+            <div style="color: red;">
+              <p>Email o contrasena incorrecto</p>
+            </div>
+          {% endif %}
+
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Ingrese su email" name="email" required>
       
-          <label for="psw"><b>Contraseña</b></label>
-          <input type="password" placeholder="Ingrese su contraseña" name="psw" required>
+          <label for="password"><b>Contraseña</b></label>
+          <input type="password" placeholder="Ingrese su contraseña" name="password" required>
       
           <button type="submit">Entrar</button>
           <label style="text-align: center">
