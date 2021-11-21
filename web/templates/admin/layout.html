@@ -35,10 +35,17 @@
     </style>
 </head>
 <body>
-    <nav>
-        <a href="/admin/ongs">Ver todas las ONG</a>
-        <a href="/admin/ongs/new">Añadir ONG</a>
-    </nav>
+    <header>
+        <nav>
+           
+            <a href="/admin/ongs">Ver todas las ONG</a>
+            <a href="/admin/ongs/new">Añadir ONG</a>
+            <div>
+                Bienvenido: {{ name }}
+            </div>
+        </nav>
+        
+    </header>
     <main>
         {% block content %}{% endblock %}
     </main>

@@ -1,4 +1,5 @@
 import re
+import random
 from sqlite3.dbapi2 import Error
 from flask import Flask, Response,redirect, make_response
 from flask import request
@@ -10,6 +11,10 @@ app = Flask(__name__, template_folder='web/templates', static_folder='web/static
 
 db.init_db()
 db.seed_db()
+
+ticket = None
+user_name = None
+
 
 @app.route('/')
 def home():
@@ -23,13 +28,13 @@ def categories():
 
 
 @app.route('/admin/ongs')
-def tables():
-    ticket = request.cookies.get('ticket')
-    print (ticket)
-    if ticket == None:
+def get_ongs():
+    user_ticket = request.cookies.get('ticket')
+    if user_ticket == None or user_ticket != ticket:
         return redirect('/auth/login')
-    else:    
-        return render_template('admin/list_ong.html', ongs = db.get_ongs())
+    
+    print('el user name es:' + user_name)
+    return render_template('admin/list_ong.html', ongs = db.get_ongs(), name = user_name)
 
 
 @app.route('/admin/ongs/new')
@@ -50,30 +55,44 @@ def delete_ong(id):
     return 'delete'
 
 
-# @app.route('/admin/user')
-# def create_ticket():
-#     resp = make_response()
-#     resp.set_cookie('ticket', '4254352345243635464')
-#     return resp
-
-
 @app.route('/auth/login')
-def login():
+def login_get():
     return render_template('auth/login.html')
 
 
 @app.route('/auth/login', methods=['POST'])
-def loguin2():
+def loguin_post():
+    # obtine el email y el password del formulario q envio el navegador
     email = request.form.get('email')
     password = request.form.get('password')
-    print(email)
-    print(password)
+
+    # obtiene todos los usuarios de la db q tengan el email y el password q envio el navegador
     r = db.search_user(email, password)
-    print (r)
-    if len(r) ==0:
+    # r es una lista q contine los usuarios
+
+    # si no se encontro ningun usuario con el email y el password q envio el navegaro
+    if len(r) == 0:
+        # returno el login nuevamente con un mensaje de error
         return render_template('auth/login.html', error = True)
+
+    # create un tikcket para el usuario
+    global ticket
+    ticket = str(random.randint(1000000, 10000000))
+
+    # guarda el name del usuario q se le da el ticket
+    global user_name
+    user = r[0]
+    user_name= user['name']
+
+    print(ticket)
+    print(user_name)
+    
+    # crearun response que haga un redirect a la url '/admin/ongs'
     resp = make_response(redirect('/admin/ongs'))
-    resp.set_cookie('ticket', '4254352345243635464')
+
+    # guardo el ticket en una cookie
+    resp.set_cookie('ticket', ticket)
+
     return resp
 
 
