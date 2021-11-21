@@ -18,7 +18,8 @@
       <th style="width:30%;">Descripción</th>
       <th style="width:10%;"> Número de contacto</th>
       <th style="width:10%;"> Dirección</th>
-      <th style="width: 10%;">Imagen</th>
+      <th style="width: 10%;">Nombre del encargado/a de la ONG</th>
+      <th style="width: 10%;"> Número de contacto</th>
       <th style="width:5%;"></th>
     </tr>
 
@@ -27,9 +28,10 @@
       <td>{{d['id']}}</td> 
       <td>{{d['name']}}</td>
       <td>{{d['description']}}</td>
-      <td>{{d['númeroContacto']}}</td>
-      <td>{{d['direccion']}}</td>
-      <td>{{d['imagen']}}</td>
+      <td>{{d['contact_number']}}</td>
+      <td>{{d['address']}}</td>
+      <td>{{d['manager_name']}}</td>
+      <td>{{d['manager_contact']}}</td>
       <td><button onclick="deleteOng('{{d['id']}}', '{{d['name']}}')">Borrar</button></td>
       
      </tr>
