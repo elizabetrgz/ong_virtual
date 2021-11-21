@@ -10,10 +10,10 @@
 </head>
 <body>
     <form action="/auth/login" method="post">
-        <!-- <div class="imgcontainer">
+        <div class="imgcontainer">
           <img src="/static/img/image.png" alt="Avatar" class="avatar">
         </div>
-       -->
+      
         <div class="container">
           {% if error == True %}
             <div style="color: red;">
@@ -29,13 +29,7 @@
       
           <button type="submit">Entrar</button>
           <label style="text-align: center">
-            <input type="checkbox" checked="checked" name="remember" > Recuérdame
           </label>
-        </div>
-      
-        <div class="container" style="background-color:#f1f1f1; border-radius: 10px;">
-          <button type="button" class="cancelbtn" style="margin: bottom 15px;">Cancelar</button>
-          <span class="psw">Olvidaste <a href="#"> la contraseña?</a></span>
         </div>
       </form>
 </body>

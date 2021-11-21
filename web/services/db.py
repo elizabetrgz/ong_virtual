@@ -4,6 +4,7 @@ from flask import app
 DB_NAME = 'ong.sqlite'
 
 
+# crea un cursor para consultar la db
 def get_cursor():
     def dict_factory(c, r):
         d = {}
@@ -17,8 +18,11 @@ def get_cursor():
     return cur
 
 
+# inicializa la db creando sus tablas
 def init_db():
     cursor = get_cursor()
+
+    # crear la tabla ongs
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS ongs (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -30,6 +34,8 @@ def init_db():
             manager_contact VARCHAR(12) NOT NULL
         )
     """)
+
+    # crear la tabla users
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -39,15 +45,21 @@ def init_db():
             role VARCHAR(35)
         )
     """)
+
+    # crear la tabla tickets
+    # TODO
+
     cursor.connection.commit()
     print("Ong table created")
     print("Users table created")
     cursor.connection.close()
 
 
+# inserta en la db los valores inicialies de las tablas users y ongs
 def seed_db():
     cur = get_cursor()
 
+    # inicializa las ongs
     ongs = [
         {
             'id': '1',
@@ -81,12 +93,20 @@ def seed_db():
             )
         """)
 
+    # inicializa los usuarios
     users= [
         {
             'id': '1',
             'email':'elizabetrgz91@gmail.com',
             'name': 'Eizabet',
-            'password':'holaeliyale',
+            'password':'123',
+            'role': 'admin',
+        },
+         {
+            'id': '2',
+            'email':'aleyva@gmail.com',
+            'name': 'Alexander',
+            'password':'123',
             'role': 'admin',
         }
     ]
@@ -108,11 +128,11 @@ def seed_db():
             )
         """)   
 
-    
     cur.connection.commit()
     cur.connection.close()
 
 
+# devuela una lista con todas las ongs
 def get_ongs():
     cur = get_cursor()
     cur.execute('SELECT * FROM ongs')
@@ -121,6 +141,7 @@ def get_ongs():
     return list_ong
     
 
+# crea una ong en la db con los parametros indicados
 def create_ongs(id, name, description, contact_number, address, manager_name, manager_contact):
     # if name is None:
     #     return "The name is required", 400
@@ -138,33 +159,40 @@ def create_ongs(id, name, description, contact_number, address, manager_name, ma
     return True
 
 
+# busca la ong por el id, y si exista la elimina de la db
 def delete_ong(id_ongs):
     cur = get_cursor()
+
+    # buscar la ong por id
     cur.execute('SELECT * FROM ongs WHERE id =' + id_ongs)
     n = cur.fetchall()
+
+    # si la longitud de la lista es 0, significa q no se encontraron ongs con ese id
     if len(n) == 0:
         cur.connection.close()
         return None
 
+    # elimina la ong de la db por el id dado
     cur.execute('DELETE FROM ongs WHERE id = '+id_ongs)
     cur.connection.commit()
     cur.connection.close()
     return True
 
 
+# devuelve una lista con los usuarios de la db q tenga el email y password indicado
 def search_user(email, password):
     cur =get_cursor()
-    query = f'SELECT * FROM users WHERE email= "{email}" and password= "{password}"'
-    print (query)
-    cur.execute(query)
+    cur.execute(f'SELECT * FROM users WHERE email= "{email}" and password= "{password}"')
     list_users = cur.fetchall()
     cur.connection.close()
     return list_users
 
 
-
-    
-
-
-# ---------------------------
+# devuelve el usuario (dictionario) con el id indicado
+def find_user(user_id):
+    cur =get_cursor()
+    cur.execute(f'SELECT * FROM users WHERE id= "{user_id}"')
+    list_users = cur.fetchall()
+    cur.connection.close()
+    return list_users[0]
 
