@@ -1,6 +1,8 @@
 import sqlite3
 from flask import app
 
+from app2 import categories
+
 DB_NAME = 'ong.sqlite'
 
 
@@ -55,10 +57,31 @@ def init_db():
         )
     """)
 
+
+    # crear la tabla de categorías
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS categories (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            category_name VARCHAR(50) NOT NULL
+        )
+    """)
+
+
+    #crear la tabla de departamentos
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS departments (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            department_name VARCHAR(50) NOT NULL
+        )
+    """)
+
+
     cursor.connection.commit()
     print("Ong table created")
     print("Users table created")
     print("Tickets table created")
+    print("Categories table created")
+    print("Departments table created")
     cursor.connection.close()
 
 
@@ -133,13 +156,34 @@ def seed_db():
                 '{user['password']}', 
                 '{user['role']}' 
             )
+        """)  
+
+
+    #inicializa la tabla categories
+    users= [
+        {
+            'id': '1',
+            'category_name': 'Violencia de Género'
+            
+        }
+    ]
+    for category in categories:
+        cur.execute(f"""REPLACE INTO categories 
+            (
+                id,
+                category_name
+            ) 
+            VALUES (
+                '{category['id']}',
+                '{category['category_name']}' 
+                )
         """)   
 
     cur.connection.commit()
     cur.connection.close()
 
 
-# devuela una lista con todas las ongs
+# devuelve una lista con todas las ongs
 def get_ongs():
     cur = get_cursor()
     cur.execute('SELECT * FROM ongs')
@@ -223,3 +267,61 @@ def find_ticket (ticket_value):
     if len(list_tickets) == 0:
         return None
     return list_tickets[0]
+
+
+def delete_ticket(ticket_value):
+    cur = get_cursor()
+    cur.execute('DELETE FROM tickets WHERE value = '+ ticket_value)
+    cur.connection.commit()
+    cur.connection.close()
+    return True
+
+# funciones  para listar categorias, agregar nuevas categorias y borrar categorias
+
+
+# devuelve una lista con todas las categorias
+def get_categories():
+    cur = get_cursor()
+    cur.execute('SELECT * FROM categories')
+    list_categories = cur.fetchall()
+    cur.connection.close()
+    return list_categories
+
+
+# crea una categoria en la db con los parametros indicados
+def create_categories(id,category_name):
+    # if name is None:
+    #     return "The name is required", 400
+    # if len(name) < 3 or len(name) > 50:
+    #     return "Invalid name length", 400
+    # if description is None:
+    #     return "The description is required", 400
+    # if len(description) < 3 or len(description) > 100:
+    #     return "Invalid description length", 400
+
+    cur = get_cursor()
+    cur.execute(f'INSERT INTO categories (id ,category_name) VALUES (\'{id}\',\'{category_name}\'),')
+    cur.connection.commit()
+    cur.connection.close()
+    return True
+
+
+# busca la ong por el id, y si exista la elimina de la db
+def delete_categories(id_category):
+    cur = get_cursor()
+
+    # buscar la ong por id
+    cur.execute('SELECT * FROM ongs WHERE id =' + id_category)
+    n = cur.fetchall()
+
+    # si la longitud de la lista es 0, significa q no se encontraron ongs con ese id
+    if len(n) == 0:
+        cur.connection.close()
+        return None
+
+    # elimina la ong de la db por el id dado
+    cur.execute('DELETE FROM categories WHERE id = '+id_category)
+    cur.connection.commit()
+    cur.connection.close()
+    return True
+

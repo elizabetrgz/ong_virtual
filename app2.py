@@ -102,6 +102,12 @@ def login_post():
 
     return resp
 
+@app.route('/auth/logout', methods = ['POST'])
+def logout ():
+    ticket_value = request.cookies.get('ticket')
+    db.delete_ticket(ticket_value)
+    return redirect('/auth/login')
+
 
 if __name__ == '__main__':
     app.debug = True
