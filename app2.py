@@ -34,24 +34,14 @@ def categories():
 @app.route('/admin/ongs')
 def get_ongs():
     # obtiene el ticket q envio el usuario en la cookie (si no se envio es None)
-    user_ticket = request.cookies.get('ticket')
-
-    # itera por todos los tickets q estan guardados para saber si el ticket del usuario esta en la lista
-    encontrado = False
-    i = 0
-    for current_ticket in tickets:
-        if current_ticket == user_ticket:
-            encontrado = True
-            break
-        else:
-            i += 1
-
-    # si se encontro el ticket del usuario en la lista de tickets entonces renderiza todas las ongs
-    if encontrado == True:
-        return render_template('admin/list_ong.html', ongs = db.get_ongs(), name = user_names[i])
-    else:
-        # si no lo redirecciona al login
+    ticket_value = request.cookies.get('ticket')
+    ticket = db.find_ticket (ticket_value)
+    if ticket == None:
         return redirect('/auth/login')
+    else:
+        user_id = ticket['user_id']
+        user = db.find_user(user_id)
+        return render_template('admin/list_ong.html', ongs = db.get_ongs(), name = user['name'])     
     
 
 @app.route('/admin/ongs/new')
@@ -91,31 +81,24 @@ def login_post():
     email = request.form.get('email')
     password = request.form.get('password')
 
-    # obtiene todos los usuarios de la db q tengan el email y el password q envio el navegador
-    r = db.search_user(email, password)
-    # r es una lista q contine los usuarios
+    # obtiene el usuario de la db q tengan el email y el password q envio el navegador
+    user = db.search_user(email, password)
 
     # si no se encontro ningun usuario con el email y el password q envio el navegador
-    if len(r) == 0:
+    if user == None:
         # returno el login nuevamente con un mensaje de error
         return render_template('auth/login.html', error = True)
 
     # create un tikcket para el usuario y lo anado a la lista de tickets
-    global tickets
-    ticket = str(random.randint(1000000, 10000000))
-    tickets.append(ticket)
+    ticket_value = str(random.randint(1000000, 10000000))
+    user_id= user['id']
+    db.create_tikets(ticket_value, user_id)
 
-    # guarda el name del usuario en la lista de nombres
-    global user_names
-    user = r[0]
-    user_name= user['name']
-    user_names.append(user_name)
-    
     # crea un response que haga un redirect a la url '/admin/ongs'
     resp = make_response(redirect('/admin/ongs'))
 
-    # guardo el ticket en una cookie
-    resp.set_cookie('ticket', ticket)
+    # guardo el ticket_value en una cookie
+    resp.set_cookie('ticket', ticket_value)
 
     return resp
 

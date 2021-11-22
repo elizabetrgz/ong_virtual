@@ -47,11 +47,18 @@ def init_db():
     """)
 
     # crear la tabla tickets
-    # TODO
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS tickets (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            value VARCHAR(50) NOT NULL,
+            user_id INTEGER NOT NULL
+        )
+    """)
 
     cursor.connection.commit()
     print("Ong table created")
     print("Users table created")
+    print("Tickets table created")
     cursor.connection.close()
 
 
@@ -179,20 +186,40 @@ def delete_ong(id_ongs):
     return True
 
 
-# devuelve una lista con los usuarios de la db q tenga el email y password indicado
+# devuelve un usuario de la db q tenga el email y password indicado, o null
 def search_user(email, password):
     cur =get_cursor()
     cur.execute(f'SELECT * FROM users WHERE email= "{email}" and password= "{password}"')
     list_users = cur.fetchall()
     cur.connection.close()
-    return list_users
+    if len(list_users) == 0:
+        return None
+    return list_users[0]
 
 
-# devuelve el usuario (dictionario) con el id indicado
+# devuelve el usuario (dictionario) con el id indicado, o null
 def find_user(user_id):
     cur =get_cursor()
     cur.execute(f'SELECT * FROM users WHERE id= "{user_id}"')
     list_users = cur.fetchall()
     cur.connection.close()
+    if len(list_users) == 0:
+        return None
     return list_users[0]
 
+
+def create_tikets(value, user_id):
+    cur=get_cursor()
+    cur.execute(f'INSERT INTO tickets(value, user_id) VAlUES (\'{value}\', \'{user_id}\')')
+    cur.connection.commit()
+    cur.connection.close()
+
+
+def find_ticket (ticket_value):
+    cur =get_cursor()
+    cur.execute (f'SELECT * FROM tickets WHERE value = "{ticket_value}"' )
+    list_tickets = cur.fetchall()
+    cur.connection.close()
+    if len(list_tickets) == 0:
+        return None
+    return list_tickets[0]
