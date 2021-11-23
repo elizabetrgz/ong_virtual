@@ -14,9 +14,7 @@ app = Flask(__name__, template_folder='web/templates', static_folder='web/static
 db.init_db()
 db.seed_db()
 
-# inicialiaza los tickets y usernames de los usuarios logeados
-tickets = []
-user_names = []
+
 
 
 @app.route('/')
@@ -41,7 +39,11 @@ def get_ongs():
     else:
         user_id = ticket['user_id']
         user = db.find_user(user_id)
-        return render_template('admin/list_ong.html', ongs = db.get_ongs(), name = user['name'])     
+        return render_template('admin/list_ong.html',
+            ongs = db.get_ongs(),
+            categories=db.get_categories(),
+            name = user['name']
+            )     
     
 
 @app.route('/admin/ongs/new')
@@ -67,6 +69,13 @@ def delete_ong(id):
     # elimina la ong de la db
     db.delete_ong(id)
     return 'delete'
+
+@app.route('/admin/ongs/delete/categories/<id>', methods=['DELETE'])
+def delete_categories(id):
+    # elimina la ong de la db
+    db.delete_categories(id)
+    return 'delete'
+
 
 
 @app.route('/auth/login')
