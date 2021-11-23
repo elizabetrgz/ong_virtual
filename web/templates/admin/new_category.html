@@ -1,0 +1,23 @@
+{% extends 'admin/layout.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="/static/styles/form.css">
+{% endblock %}
+
+{% block content%}
+<form class="" action="/admin/categories/save" method="post">
+    <h1>Datos a llenar de la nueva Categoría </h1>
+    <hr>
+
+    <label for="name"><b>Nombre de la nueva Categoría</b></label>
+    <input type="text" placeholder="Nombre de la ONG" name="name" required>
+
+    <div class="clearfix">
+        <button type="button" class="cancelbtn">Cancelar</button>
+        <button type="submit" class="signup">Crear</button>
+    </div>
+</form>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

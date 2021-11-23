@@ -190,7 +190,7 @@ def get_ongs():
     
 
 # crea una ong en la db con los parametros indicados
-def create_ongs(id, name, description, contact_number, address, manager_name, manager_contact):
+def create_ongs(name, description, contact_number, address, manager_name, manager_contact):
     # if name is None:
     #     return "The name is required", 400
     # if len(name) < 3 or len(name) > 50:
@@ -201,7 +201,11 @@ def create_ongs(id, name, description, contact_number, address, manager_name, ma
     #     return "Invalid description length", 400
 
     cur = get_cursor()
-    cur.execute(f'INSERT INTO ongs (id ,name, description, contact_number, address,manager_name, manager_contact) VALUES (\'{id}\',\'{name}\', \'{description}\', \'{contact_number}\',  \'{address}\',  \'{manager_name}\',  \'{manager_contact}\'),')
+    cur.execute(f"""INSERT INTO ongs (
+        name, description, contact_number, address,manager_name, manager_contact)
+        VALUES (
+        \'{name}\', \'{description}\', \'{contact_number}\', \'{address}\', \'{manager_name}\', \'{manager_contact}\'
+        )""")
     cur.connection.commit()
     cur.connection.close()
     return True
@@ -286,7 +290,7 @@ def get_categories():
 
 
 # crea una categoria en la db con los parametros indicados
-def create_categories(id,category_name):
+def create_categories(category_name):
     # if name is None:
     #     return "The name is required", 400
     # if len(name) < 3 or len(name) > 50:
@@ -297,7 +301,7 @@ def create_categories(id,category_name):
     #     return "Invalid description length", 400
 
     cur = get_cursor()
-    cur.execute(f'INSERT INTO categories (id ,category_name) VALUES (\'{id}\',\'{category_name}\'),')
+    cur.execute(f'INSERT INTO categories (category_name) VALUES (\'{category_name}\')')
     cur.connection.commit()
     cur.connection.close()
     return True

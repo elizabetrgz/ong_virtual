@@ -54,14 +54,19 @@ def new_ong():
 @app.route('/admin/ongs/save', methods=['POST'])
 def create_ong():
     # obtiene el nombre y descricion del formulario q envio el navegador
-    name = request.form['name']
-    description = request.form['description']
-
     # creao la ong en la db
-    db.create_ongs(name, description)
+    db.create_ongs(
+        request.form.get('name'),
+        request.form.get('description'),
+        request.form.get('contact_number'),
+        request.form.get('address'),
+        request.form.get('manager_name'),
+        request.form.get('manager_contact'))
 
     # redirecciona a la url '/admin/ongs' (donde se listan todas las ong)
     return redirect('/admin/ongs')
+
+
 
 
 @app.route('/admin/ongs/delete/<id>', methods=['DELETE'])
@@ -75,6 +80,24 @@ def delete_categories(id):
     # elimina la ong de la db
     db.delete_categories(id)
     return 'delete'
+
+
+@app.route('/admin/categories/new')
+def new_category():
+    # renderizar el formulario crear una nueva ong
+    return render_template('/admin/new_category.html')
+
+
+@app.route('/admin/categories/save', methods=['POST'])
+def create_categories():
+    # obtiene el nombre y descricion del formulario q envio el navegador
+    name = request.form.get('name')
+  
+    # creao la ong en la db
+    db.create_categories(name)
+
+    # redirecciona a la url '/admin/ongs' (donde se listan todas las ong)
+    return redirect('/admin/ongs')
 
 
 
