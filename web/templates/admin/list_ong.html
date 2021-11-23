@@ -43,12 +43,13 @@
     <tr class="header">
       <th style="width:5%;" >No.</th>
       <th style="width:40%;">Categoría</th>
+      <th style="width:20%;"></th>
     </tr>
-    {% for d in ongs %} 
+    {% for d in categories %} 
      <tr>
       <td>{{d['id']}}</td> 
       <td>{{d['category_name']}}</td>
-      <td><button onclick="deleteCategory('{{d['id']}}', '{{d['category_name']}}')">Borrar</button></td>
+      <td><button onclick="deleteCategories('{{d['id']}}', '{{d['category_name']}}')">Borrar</button></td>
       
      </tr>
     {% endfor %} 

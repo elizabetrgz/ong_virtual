@@ -1,7 +1,4 @@
 import sqlite3
-from flask import app
-
-from app2 import categories
 
 DB_NAME = 'ong.sqlite'
 
@@ -160,10 +157,10 @@ def seed_db():
 
 
     #inicializa la tabla categories
-    users= [
+    categories= [
         {
             'id': '1',
-            'category_name': 'Violencia de Género'
+            'category_name':'Violencia de Género',
             
         }
     ]
@@ -224,7 +221,7 @@ def delete_ong(id_ongs):
         return None
 
     # elimina la ong de la db por el id dado
-    cur.execute('DELETE FROM ongs WHERE id = '+id_ongs)
+    cur.execute('DELETE FROM ongs WHERE id = '+ id_ongs)
     cur.connection.commit()
     cur.connection.close()
     return True
@@ -306,12 +303,12 @@ def create_categories(id,category_name):
     return True
 
 
-# busca la ong por el id, y si exista la elimina de la db
+# busca la categoria por el id, y si exista la elimina de la db
 def delete_categories(id_category):
     cur = get_cursor()
 
-    # buscar la ong por id
-    cur.execute('SELECT * FROM ongs WHERE id =' + id_category)
+    # buscar la categoria por id
+    cur.execute('SELECT * FROM categories WHERE id =' + id_category)
     n = cur.fetchall()
 
     # si la longitud de la lista es 0, significa q no se encontraron ongs con ese id
@@ -320,7 +317,7 @@ def delete_categories(id_category):
         return None
 
     # elimina la ong de la db por el id dado
-    cur.execute('DELETE FROM categories WHERE id = '+id_category)
+    cur.execute('DELETE FROM categories WHERE id = '+ id_category)
     cur.connection.commit()
     cur.connection.close()
     return True

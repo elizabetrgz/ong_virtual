@@ -36,3 +36,19 @@ function deleteOng(id, name){
  
 }
 
+function deleteCategories(id, name){
+  
+  
+  var r = confirm("Estas seguro que desea eliminar esta categoría:" + name +"?")
+  if (r == true){
+    $.ajax({
+      url: '/admin/ongs/categories/delete/'+ id,
+      type: 'DELETE',
+      success: function(result) {
+        location.reload();
+      }
+    });
+  }
+ 
+}
+
