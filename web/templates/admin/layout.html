@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,49 +11,74 @@
     {% block styles %}{% endblock %}
 
     <style>
-        nav{
-            display: block;
+        nav {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             height: 100px;
             width: 100%;
             border: 1px solid gray;
             padding: 40px;
         }
 
-        main{
+        main {
             padding: 20px 40px;
         }
 
-    a{
-    border: 1px solid;
-    margin: 20px;
-    padding: 20px;
-    background-color: #0057b4;
-    border-radius: 5px;
-    text-decoration: none;
-    color: white;
-    font-size: 15px;
-    }
+        a {
+            border: 1px solid;
+            margin: 20px;
+            padding: 20px;
+            background-color: #0057b4;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+        }
+
+        .out {
+            border: 1px solid;
+            margin: 20px;
+            padding: 20px;
+            background-color: #0057b4;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+        }
+
+        .wel{
+            font-weight: bold;
+            color: #052754;
+        }
     </style>
 </head>
+
 <body>
     <header>
         <nav>
-           
+
             <a href="/admin/ongs">Ver todas las ONG</a>
             <a href="/admin/ongs/new">Añadir ONG</a>
             <a href="/admin/categories/new">Añadir Categoría</a>
-            <form action="/auth/logout" method="post"><button>Salir</button> </form>
+            <form action="/auth/logout" method="post"><button class="out">Salir</button> </form>
             <div>
-                Bienvenido: {{ name }}
+           <p class="wel"><i class="fa-solid fa-user-gear"></i>
+            Bienvenido: {{ name }}</p>
+                
             </div>
         </nav>
-        
+
     </header>
     <main>
         {% block content %}{% endblock %}
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+     <script src="https://kit.fontawesome.com/b9132d8f3b.js" crossorigin="anonymous"></script> 
+      
     {% block scripts %}{% endblock %}
 </body>
+
 </html>
