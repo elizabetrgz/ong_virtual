@@ -70,7 +70,7 @@ def delete_ong(id):
     db.delete_ong(id)
     return 'delete'
 
-@app.route('/admin/ongs/delete/categories/<id>', methods=['DELETE'])
+@app.route('/admin/categories/delete/<id>', methods=['DELETE'])
 def delete_categories(id):
     # elimina la ong de la db
     db.delete_categories(id)
