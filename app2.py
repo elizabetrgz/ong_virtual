@@ -105,6 +105,24 @@ def new_form():
     # renderizar el formulario crear una nueva ong
     return render_template('/form_home.html')
 
+@app.route('/admin/ongs/form', methods=['POST'])
+def create_ong_form():
+    # obtiene el nombre y descricion del formulario q envio el navegador
+    # creao la ong en la db
+    db.create_ongs(
+        request.form.get('name'),
+        request.form.get('description'),
+        request.form.get('contact_number'),
+        request.form.get('address'),
+        request.form.get('manager_name'),
+        request.form.get('manager_contact'))
+
+    # redirecciona a la url '/admin/ongs' (donde se listan todas las ong)
+    return redirect('/admin/ongs')
+
+@app.route("/ong/form/close")
+def close():
+    return redirect('/')
 
 
 @app.route('/auth/login')
@@ -145,6 +163,8 @@ def logout ():
     ticket_value = request.cookies.get('ticket')
     db.delete_ticket(ticket_value)
     return redirect('/auth/login')
+
+
 
 
 if __name__ == '__main__':
