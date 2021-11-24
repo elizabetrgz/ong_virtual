@@ -8,39 +8,42 @@
     <title>Form</title>
 </head>
 <body>
-    <div id="id01" class="modal">
-        <span onclick="document.getElementById('id01').style.display='none'"
-            onclick="document.getElementById('id01').style.display='none'" class="close"
-            title="Close Modal">x</span>
-        <form class="modal-content" action="/action_page.php">
+    <div class="modal">
+        <div class="close">
+            <a href="/ong/form/close">x</a>
+        </div>
+
+       
+        <form class="modal-content" action="/admin/ongs/form" method="post">
             <div class="container-modal">
                 <h1>Datos a llenar de la ONG que desea ingresar </h1>
                 <p>Por favor debe ingresar estos datos par ingresar su ONG</p>
                 <hr>
 
-                <label for="name-ong"><b>Nombre de la ONG</b></label>
-                <input type="text" placeholder="Nombre de la ONG" name="name-ong" required>
+                <label for="name"><b>Nombre de la ONG</b></label>
+                <input type="text" placeholder="Nombre de la ONG" name="name" required>
+
+                <label for="description"><b>Describa brevemente el trabajo que realiza su ONG</b></label>
+                <textarea name="description" required
+                    style="width: 100%; height: 200px; margin-top: 15px; margin-bottom: 15px;"></textarea>
 
                 <label for="contact-number"><b>Introduzca un número de contacto</b></label>
                 <input type="text" placeholder="Numero de contacto" name="contact-number" required>
+                
+                <label for="address"><b>Introduzca la dirección de la ONG</b></label>
+                <input type="text" placeholder="Dirección" name="address" required>
+                
 
-                <label for="email"><b>Correo Electrónico</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required>
+                <!-- <label for="email"><b>Correo Electrónico</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required> -->
 
-                <label for="descripcion"><b>Describa brevemente el trabajo que realiza su ONG</b></label>
-                <textarea name="descripcion" required
-                    style="width: 100%; height: 200px; margin-top: 15px; margin-bottom: 15px;"></textarea>
-
-                <label for="image"><b>Puede añadir una imagen que represente su ONG</b></label>
-                <input type="image" name="image"
-                    style="width: 100%; height: 200px; margin-top: 15px; margin-bottom: 15px;">
 
                 <div action="" class="dates-person">
                     <h1 style="margin-bottom: 8px;">Datos de la persona que ingresa la ONG</h1>
-                    <label for="name"><b>Nombre y Apellidos</b></label>
-                    <input type="text" name="name" required>
-                   <label for="phone-number"><b>Número de Contacto</b></label>
-                    <input type="text" name="phone-number" required>
+                    <label for="manager_name"><b>Nombre y Apellidos</b></label>
+                    <input type="text" name="manager_name" required>
+                   <label for="manager_contact"><b>Número de Contacto</b></label>
+                    <input type="text" name="manager_contact" required>
                 </div>
 
                 <p>Al crear una cuenta, acepta nuestros<a href="#" style="color:dodgerblue">Terminos y Privacidad</a>.
@@ -54,5 +57,8 @@
             </div>
 
         </form>
+
+    </div>
+        
 </body>
 </html>

@@ -94,25 +94,23 @@ hr {
   font-size: 40px;
   font-weight: bold;
   color: #f1f1f1;
+  text-decoration: none;
+}
+
+.close a{
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+  text-decoration: none;
 }
 
 .close:hover,
-.close:focus {
+.close:focus a{
   cursor: pointer;
 }
 
 
-.clearfix{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
 
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-}
 .dates-person{
   border: 1px solid black;
   padding: 18px;
