@@ -7,11 +7,11 @@
 {% block content%}
 <div>
   <label class="label-filter" for="filter"><b>Filtrar por nombre:</b></label>
-  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." name="filter">
+  <input type="text" id="myInput" class="myInput" onkeyup="myFunction()" placeholder="Search for names.." name="filter">
   </div>
 
   
-  <table id="myTable">
+  <table id="myTable" class="myTable">
     <tr class="header">
       <th style="width:5%;" >No.</th>
       <th style="width:20%;">Nombre de las ONG</th>
@@ -36,10 +36,18 @@
       
      </tr>
     {% endfor %}
-  
-  </table>
+</table>
 
-  <table id="myTable">
+
+
+  <div>
+  <label class="label-filter" for="filter"><b>Filtrar por nombre:</b></label>
+  <input type="text" id="myInput2" class="myInput"  onkeyup="myFunction_new()" placeholder="Search for names.." name="filter">
+  </div>
+
+  
+
+  <table class="myTable" id="myTable2">
     <tr class="header">
       <th style="width:5%;" >No.</th>
       <th style="width:40%;">Categoría</th>
@@ -53,8 +61,7 @@
       
      </tr>
     {% endfor %} 
-
-  
+ </table>
 {% endblock %}
 
 {% block scripts %}

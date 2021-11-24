@@ -15,6 +15,7 @@
             display: flex;
             flex-direction: row;
             align-items: center;
+            justify-content: space-between;
             height: 100px;
             width: 100%;
             border: 1px solid gray;
@@ -47,7 +48,7 @@
             font-size: 15px;
         }
 
-        .wel{
+        .wel {
             font-weight: bold;
             color: #052754;
         }
@@ -62,10 +63,11 @@
             <a href="/admin/ongs/new">Añadir ONG</a>
             <a href="/admin/categories/new">Añadir Categoría</a>
             <form action="/auth/logout" method="post"><button class="out">Salir</button> </form>
-            <div>
-           <p class="wel"><i class="fa-solid fa-user-gear"></i>
-            Bienvenido: {{ name }}</p>
-                
+            <div style="margin-left: 200px; display: flex; align-items: center;">
+            <img src="/static/img/usuario.png" style="width: 48px; margin-right:10px;"></img>
+            <p class="wel" style="font-size: 20px;">
+                    Bienvenido/a: {{ name }}</p>
+
             </div>
         </nav>
 
@@ -76,8 +78,8 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-     <script src="https://kit.fontawesome.com/b9132d8f3b.js" crossorigin="anonymous"></script> 
-      
+    <script src="https://kit.fontawesome.com/b9132d8f3b.js" crossorigin="anonymous"></script>
+
     {% block scripts %}{% endblock %}
 </body>
 

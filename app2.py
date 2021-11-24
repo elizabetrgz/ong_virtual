@@ -100,6 +100,12 @@ def create_categories():
     return redirect('/admin/ongs')
 
 
+@app.route('/admin/ongs/form')
+def new_ong():
+    # renderizar el formulario crear una nueva ong
+    return render_template('/admin/')
+
+
 
 @app.route('/auth/login')
 def login_get():

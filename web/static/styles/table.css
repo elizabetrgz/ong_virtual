@@ -1,5 +1,5 @@
 
-#myInput {
+.myInput {
     background-image: url('/css/searchicon.png'); 
     background-position: 10px 12px; 
     background-repeat: no-repeat; 
@@ -11,7 +11,7 @@
     margin-bottom: 12px; 
   }
   
-  #myTable {
+  .myTable {
     border-collapse: collapse; 
     width: 90%;
     border: 1px solid #ddd;
@@ -19,15 +19,15 @@
     margin: 50px 50px;
   }
   
-  #myTable th, #myTable td {
+  .myTable th, .myTable td {
     text-align: left; 
     padding: 12px; 
   }
   
-  #myTable tr {
+  .myTable tr {
     border-bottom: 1px solid #ddd;
   }
   
-  #myTable tr.header, #myTable tr:hover {
+  .myTable tr.header, .myTable tr:hover {
     background-color: #f1f1f1;
   }
