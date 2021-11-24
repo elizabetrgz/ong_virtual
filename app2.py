@@ -101,9 +101,9 @@ def create_categories():
 
 
 @app.route('/admin/ongs/form')
-def new_ong():
+def new_form():
     # renderizar el formulario crear una nueva ong
-    return render_template('/admin/')
+    return render_template('/form_home.html')
 
 
 
