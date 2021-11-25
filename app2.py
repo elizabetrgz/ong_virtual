@@ -51,6 +51,7 @@ def new_ong():
     # renderizar el formulario crear una nueva ong
     return render_template('/admin/new_ongs.html')
 
+
 @app.route('/admin/ongs/save', methods=['POST'])
 def create_ong():
     # obtiene el nombre y descricion del formulario q envio el navegador
@@ -67,13 +68,12 @@ def create_ong():
     return redirect('/admin/ongs')
 
 
-
-
 @app.route('/admin/ongs/delete/<id>', methods=['DELETE'])
 def delete_ong(id):
     # elimina la ong de la db
     db.delete_ong(id)
     return 'delete'
+
 
 @app.route('/admin/categories/delete/<id>', methods=['DELETE'])
 def delete_categories(id):
@@ -105,6 +105,7 @@ def new_form():
     # renderizar el formulario crear una nueva ong
     return render_template('/form_home.html')
 
+
 @app.route('/admin/ongs/form', methods=['POST'])
 def create_ong_form():
     # obtiene el nombre y descricion del formulario q envio el navegador
@@ -118,11 +119,17 @@ def create_ong_form():
         request.form.get('manager_contact'))
 
     # redirecciona a la url '/admin/ongs' (donde se listan todas las ong)
-    return redirect('/admin/ongs')
+    return redirect('/')
+
 
 @app.route("/ong/form/close")
 def close():
     return redirect('/')
+
+
+@app.route("/ong/form/answer")
+def answer():
+    return render_template('/form_answer.html')
 
 
 @app.route('/auth/login')
@@ -157,6 +164,7 @@ def login_post():
     resp.set_cookie('ticket', ticket_value)
 
     return resp
+
 
 @app.route('/auth/logout', methods = ['POST'])
 def logout ():
