@@ -18,8 +18,11 @@
             justify-content: space-between;
             height: 100px;
             width: 100%;
-            border: 1px solid gray;
-            padding: 40px;
+            padding: 50px;
+            margin-bottom: 30px;
+            -webkit-box-shadow: 1px 20px 15px -19px rgba(13, 16, 64, 0.88);
+            -moz-box-shadow: 1px 20px 15px -19px rgba(13, 16, 64, 0.88);
+            box-shadow: 1px 20px 15px -19px rgba(13, 16, 64, 0.88);
         }
 
         main {
@@ -27,7 +30,6 @@
         }
 
         a {
-            border: 1px solid;
             margin: 20px;
             padding: 20px;
             background-color: #0057b4;
@@ -35,6 +37,29 @@
             text-decoration: none;
             color: white;
             font-size: 15px;
+            width: 120px;
+            height: 70px;
+            text-align: center;
+            -webkit-box-shadow: 11px 10px 15px -6px rgba(14, 43, 173, 0.67);
+            -moz-box-shadow: 11px 10px 15px -6px rgba(14, 43, 173, 0.67);
+            box-shadow: 11px 10px 15px -6px rgba(14, 43, 173, 0.67);
+        }
+
+        .bt button {
+            border: 1px solid #0057b4;
+            margin: 20px;
+            padding: 20px;
+            background-color: #0057b4;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            width: 120px;
+            height: 70px;
+            text-align: center;
+            -webkit-box-shadow: 11px 10px 15px -6px rgba(14, 43, 173, 0.67);
+            -moz-box-shadow: 11px 10px 15px -6px rgba(14, 43, 173, 0.67);
+            box-shadow: 11px 10px 15px -6px rgba(14, 43, 173, 0.67);
         }
 
         .out {
@@ -62,10 +87,10 @@
             <a href="/admin/ongs">Ver todas las ONG</a>
             <a href="/admin/ongs/new">Añadir ONG</a>
             <a href="/admin/categories/new">Añadir Categoría</a>
-            <form action="/auth/logout" method="post"><button class="out">Salir</button> </form>
+            <form class="bt" action="/auth/logout" method="post"><button class="out">Salir</button> </form>
             <div style="margin-left: 200px; display: flex; align-items: center;">
-            <img src="/static/img/usuario.png" style="width: 48px; margin-right:10px;"></img>
-            <p class="wel" style="font-size: 20px;">
+                <img src="/static/img/usuario.png" style="width: 48px; margin-right:10px;"></img>
+                <p class="wel" style="font-size: 20px;">
                     Bienvenido/a: {{ name }}</p>
 
             </div>

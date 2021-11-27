@@ -8,68 +8,102 @@
 <div>
   <label class="label-filter" for="filter"><b>Filtrar por nombre:</b></label>
   <input type="text" id="myInput" class="myInput" onkeyup="myFunction()" placeholder="Search for names.." name="filter">
-  </div>
+</div>
+<style>
+  th {
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
 
-  
-  <table id="myTable" class="myTable">
-    <tr class="header">
-      <th style="width:5%;" >No.</th>
-      <th style="width:20%;">Nombre de las ONG</th>
-      <th style="width:30%;">Descripción</th>
-      <th style="width:10%;"> Número de contacto</th>
-      <th style="width:10%;"> Dirección</th>
-      <th style="width: 10%;">Nombre del encargado/a de la ONG</th>
-      <th style="width: 10%;"> Número de contacto</th>
-      <th style="width:5%;"></th>
-      <th style="width:5%;"></th>
-    </tr>
+  td {
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
 
-    {% for d in ongs %} 
-     <tr>
-      <td>{{d['id']}}</td> 
-      <td>{{d['name']}}</td>
-      <td>{{d['description']}}</td>
-      <td>{{d['contact_number']}}</td>
-      <td>{{d['address']}}</td>
-      <td>{{d['manager_name']}}</td>
-      <td>{{d['manager_contact']}}</td>
-      <td><button onclick="deleteOng('{{d['id']}}', '{{d['name']}}')">Borrar</button></td>
-      <td><a href="/admin/ongs/edit/{{d['id']}}">Editar</a></td>
-      
-     </tr>
-    {% endfor %}
+  .tb-btn {
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    border: 1px solid black;
+    width: 60px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    -webkit-box-shadow: 28px 40px 79px -33px rgba(0, 0, 0, 0.91);
+    -moz-box-shadow: 28px 40px 79px -33px rgba(0, 0, 0, 0.91);
+    box-shadow: 28px 40px 79px -33px rgba(0, 0, 0, 0.91);
+
+  }
+
+  table {
+    -webkit-box-shadow: 1px 20px 15px -19px rgba(13, 16, 64, 0.88);
+    -moz-box-shadow: 1px 20px 15px -19px rgba(13, 16, 64, 0.88);
+    box-shadow: 1px 20px 15px -19px rgba(13, 16, 64, 0.88);
+    
+  }
+</style>
+
+<table id="myTable" class="myTable">
+  <tr class="header">
+    <th>No.</th>
+    <th>Nombre de las ONG</th>
+    <th>Descripción</th>
+    <th> Número de contacto</th>
+    <th> Correo Electrónico</th>
+    <th> Dirección</th>
+    <th>Nombre del encargado/a de la ONG</th>
+    <th> Número de contacto</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  {% for d in ongs %}
+  <tr>
+    <td>{{d['id']}}</td>
+    <td>{{d['name']}}</td>
+    <td>{{d['description']}}</td>
+    <td>{{d['contact_number']}}</td>
+    <td>{{d['email']}}</td>
+    <td>{{d['address']}}</td>
+    <td>{{d['manager_name']}}</td>
+    <td>{{d['manager_contact']}}</td>
+    <td><button onclick="deleteOng('{{d['id']}}', '{{d['name']}}')" class="tb-btn">Borrar</button></td>
+    <td><a class="tb-btn" href="/admin/ongs/edit/{{d['id']}}">Editar</a></td>
+
+  </tr>
+  {% endfor %}
 </table>
 
 
 
-  <div>
+<div>
   <label class="label-filter" for="filter"><b>Filtrar por nombre:</b></label>
-  <input type="text" id="myInput2" class="myInput"  onkeyup="myFunction_new()" placeholder="Search for names.." name="filter">
-  </div>
+  <input type="text" id="myInput2" class="myInput" onkeyup="myFunction_new()" placeholder="Search for names.."
+    name="filter">
+</div>
 
-  
 
-  <table class="myTable" id="myTable2">
-    <tr class="header">
-      <th style="width:5%;" >No.</th>
-      <th style="width:40%;">Categoría</th>
-      <th style="width:20%;"></th>
-      
-    </tr>
-    {% for d in categories %} 
-     <tr>
-      <td>{{d['id']}}</td> 
-      <td>{{d['category_name']}}</td>
-      <td><button onclick="deleteCategories('{{d['id']}}', '{{d['category_name']}}')">Borrar</button></td>
-      
-      
-     </tr>
-    {% endfor %} 
- </table>
+
+<table class="myTable" id="myTable2">
+  <tr class="header">
+    <th style="width:5%;">No.</th>
+    <th style="width:40%;">Categoría</th>
+    <th style="width:20%;"></th>
+
+  </tr>
+  {% for d in categories %}
+  <tr>
+    <td>{{d['id']}}</td>
+    <td>{{d['category_name']}}</td>
+    <td><button onclick="deleteCategories('{{d['id']}}', '{{d['category_name']}}')" class="tb-btn">Borrar</button></td>
+
+
+  </tr>
+  {% endfor %}
+</table>
 {% endblock %}
 
 {% block scripts %}
 <script src="/static/js/table.js"></script>
 
 {% endblock %}
-

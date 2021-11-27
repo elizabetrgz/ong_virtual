@@ -201,7 +201,7 @@ def find_ong(id):
 
 
 # crea una ong en la db con los parametros indicados
-def create_ongs(name, description, contact_number, address, manager_name, manager_contact):
+def create_ongs(name, description, contact_number, email, address, manager_name, manager_contact):
     # if name is None:
     #     return "The name is required", 400
     # if len(name) < 3 or len(name) > 50:
@@ -215,14 +215,14 @@ def create_ongs(name, description, contact_number, address, manager_name, manage
     cur.execute(f"""INSERT INTO ongs (
         name, description, contact_number, address,manager_name, manager_contact)
         VALUES (
-        \'{name}\', \'{description}\', \'{contact_number}\', \'{address}\', \'{manager_name}\', \'{manager_contact}\'
+        \'{name}\', \'{description}\', \'{contact_number}\', \'{email}\', \'{address}\', \'{manager_name}\', \'{manager_contact}\'
         )""")
     cur.connection.commit()
     cur.connection.close()
     return True
 
 
-def update_ongs(id, name, description, contact_number, address, manager_name, manager_contact):
+def update_ongs(id, name, description, contact_number, email, address, manager_name, manager_contact):
     # if name is None:
     #     return "The name is required", 400
     # if len(name) < 3 or len(name) > 50:
@@ -238,6 +238,7 @@ def update_ongs(id, name, description, contact_number, address, manager_name, ma
                 name = \'{name}\',
                 description = \'{description}\',
                 contact_number = \'{contact_number}\', 
+                email = \'{email}\', 
                 address = \'{address}\', 
                 manager_name = \'{manager_name}\',
                 manager_contact = \'{manager_contact}\' 

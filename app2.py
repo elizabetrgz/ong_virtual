@@ -53,6 +53,7 @@ def new_ong():
         'name': '',
         'description': '',
         'contact_number': '',
+        'email':'',
         'address': '',
         'manager_name': '',
         'manager_contact': ''
@@ -68,6 +69,7 @@ def create_ong():
         request.form.get('name'),
         request.form.get('description'),
         request.form.get('contact_number'),
+        request.form.get('email'),
         request.form.get('address'),
         request.form.get('manager_name'),
         request.form.get('manager_contact'))
@@ -90,6 +92,7 @@ def ongs_update(id):
         request.form.get('name'),
         request.form.get('description'),
         request.form.get('contact_number'),
+        request.form.get('email'),
         request.form.get('address'),
         request.form.get('manager_name'),
         request.form.get('manager_contact'))
@@ -145,6 +148,7 @@ def create_ong_form():
         request.form.get('name'),
         request.form.get('description'),
         request.form.get('contact_number'),
+        request.form.get('email'),
         request.form.get('address'),
         request.form.get('manager_name'),
         request.form.get('manager_contact'))
