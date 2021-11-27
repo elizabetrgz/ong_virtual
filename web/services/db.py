@@ -187,7 +187,18 @@ def get_ongs():
     list_ong = cur.fetchall()
     cur.connection.close()
     return list_ong
-    
+
+
+def find_ong(id):
+    cur =get_cursor()
+    cur.execute(f'SELECT * FROM ongs WHERE id= "{id}"')
+    list_ong = cur.fetchall()
+    cur.connection.close()
+    if len(list_ong) == 0:
+        return None
+    return list_ong[0]
+
+
 
 # crea una ong en la db con los parametros indicados
 def create_ongs(name, description, contact_number, address, manager_name, manager_contact):
@@ -209,6 +220,33 @@ def create_ongs(name, description, contact_number, address, manager_name, manage
     cur.connection.commit()
     cur.connection.close()
     return True
+
+
+def update_ongs(id, name, description, contact_number, address, manager_name, manager_contact):
+    # if name is None:
+    #     return "The name is required", 400
+    # if len(name) < 3 or len(name) > 50:
+    #     return "Invalid name length", 400
+    # if description is None:
+    #     return "The description is required", 400
+    # if len(description) < 3 or len(description) > 100:
+    #     return "Invalid description length", 400
+
+    cur = get_cursor()
+    cur.execute(f"""
+            UPDATE ongs SET
+                name = \'{name}\',
+                description = \'{description}\',
+                contact_number = \'{contact_number}\', 
+                address = \'{address}\', 
+                manager_name = \'{manager_name}\',
+                manager_contact = \'{manager_contact}\' 
+            WHERE id= \'{id}\'
+        """)
+    cur.connection.commit()
+    cur.connection.close()
+    return True
+
 
 
 # busca la ong por el id, y si exista la elimina de la db

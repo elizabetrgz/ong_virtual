@@ -21,6 +21,7 @@
       <th style="width: 10%;">Nombre del encargado/a de la ONG</th>
       <th style="width: 10%;"> Número de contacto</th>
       <th style="width:5%;"></th>
+      <th style="width:5%;"></th>
     </tr>
 
     {% for d in ongs %} 
@@ -33,6 +34,7 @@
       <td>{{d['manager_name']}}</td>
       <td>{{d['manager_contact']}}</td>
       <td><button onclick="deleteOng('{{d['id']}}', '{{d['name']}}')">Borrar</button></td>
+      <td><a href="/admin/ongs/edit/{{d['id']}}">Editar</a></td>
       
      </tr>
     {% endfor %}
@@ -52,12 +54,14 @@
       <th style="width:5%;" >No.</th>
       <th style="width:40%;">Categoría</th>
       <th style="width:20%;"></th>
+      
     </tr>
     {% for d in categories %} 
      <tr>
       <td>{{d['id']}}</td> 
       <td>{{d['category_name']}}</td>
       <td><button onclick="deleteCategories('{{d['id']}}', '{{d['category_name']}}')">Borrar</button></td>
+      
       
      </tr>
     {% endfor %} 

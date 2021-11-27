@@ -49,7 +49,15 @@ def get_ongs():
 @app.route('/admin/ongs/new')
 def new_ong():
     # renderizar el formulario crear una nueva ong
-    return render_template('/admin/new_ongs.html')
+    ong = {
+        'name': '',
+        'description': '',
+        'contact_number': '',
+        'address': '',
+        'manager_name': '',
+        'manager_contact': ''
+    }
+    return render_template('/admin/new_ongs.html', action='/admin/ongs/save', ong = ong)
 
 
 @app.route('/admin/ongs/save', methods=['POST'])
@@ -66,6 +74,29 @@ def create_ong():
 
     # redirecciona a la url '/admin/ongs' (donde se listan todas las ong)
     return redirect('/admin/ongs')
+
+
+@app.route('/admin/ongs/edit/<id>')
+def ong_edit(id):
+    ong = db.find_ong(id)
+    # renderizar el formulario para editar la ONG
+    return render_template('/admin/new_ongs.html', action='/admin/ongs/update/'+ id , ong = ong)
+
+@app.route('/admin/ongs/update/<id>', methods=['POST'])
+def ongs_update(id):
+
+    db.update_ongs(
+        id,
+        request.form.get('name'),
+        request.form.get('description'),
+        request.form.get('contact_number'),
+        request.form.get('address'),
+        request.form.get('manager_name'),
+        request.form.get('manager_contact'))
+
+    # redirecciona a la url '/admin/ongs' (donde se listan todas las ong)
+    return redirect('/admin/ongs')
+
 
 
 @app.route('/admin/ongs/delete/<id>', methods=['DELETE'])
@@ -120,6 +151,8 @@ def create_ong_form():
 
     # redirecciona a la url '/admin/ongs' (donde se listan todas las ong)
     return redirect('/')
+
+
 
 
 @app.route("/ong/form/close")
