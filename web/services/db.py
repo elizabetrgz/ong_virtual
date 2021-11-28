@@ -27,10 +27,11 @@ def init_db():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name VARCHAR(50) NOT NULL,
             description VARCHAR(500) NOT NULL,
-            contact_number VARCHAR(12) NOT NULL,
-            address VARCHAR(0) NOT NULL,
+            contact_number VARCHAR(50) NOT NULL,
+            email VARCHAR(50) NOT NULL,
+            address VARCHAR(50) NOT NULL,
             manager_name VARCHAR (50) NOT NULL,
-            manager_contact VARCHAR(12) NOT NULL
+            manager_contact VARCHAR(50) NOT NULL
         )
     """)
 
@@ -93,6 +94,7 @@ def seed_db():
             'name': 'Idas y Vueltas',
             'description': 'Trabajamos para que las personas puedan migrar sin perder sus derechos y sean respetadas en su dignidad independientemente del país en el que nacieron o en el que residen.',
             'contact_number': '099 376 605',
+            'email':'idasyvueltasong@gmail.com',
             'address': 'Juan Carlos Gómez 1540, Ciudad Vieja',
             'manager_name': 'Rinche Roodenburg',
             'manager_contact': '099 376 605',
@@ -105,6 +107,7 @@ def seed_db():
                 name, 
                 description, 
                 contact_number, 
+                email,
                 address, 
                 manager_name, 
                 manager_contact
@@ -114,6 +117,7 @@ def seed_db():
                 '{ong['name']}', 
                 '{ong['description']}',
                 '{ong['contact_number']}', 
+                '{ong['email']}',
                 '{ong['address']}', 
                 '{ong['manager_name']}', 
                 '{ong['manager_contact']}'
