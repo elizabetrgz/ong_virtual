@@ -19,8 +19,15 @@ db.seed_db()
 
 @app.route('/')
 def home():
-    # renderizar la pagina principal
-    return render_template('index.html', title= 'hola mundo')
+    ong_created = request.cookies.get('ong_created')
+
+    # renderizar la pagina principal 
+    resp = make_response(render_template('index.html', title= 'hola mundo', ong_created = ong_created))
+
+    # le digo en una cookie q la ong fue creada
+    resp.set_cookie('ong_created', 'False')
+
+    return resp
    
 
 @app.route('/categories2')
@@ -154,9 +161,12 @@ def create_ong_form():
         request.form.get('manager_contact'))
 
     # redirecciona a la url '/admin/ongs' (donde se listan todas las ong)
-    return redirect('/')
+    resp = make_response(redirect('/'))
 
+    # le digo en una cookie q la ong fue creada
+    resp.set_cookie('ong_created', 'True')
 
+    return resp
 
 
 @app.route("/ong/form/close")
@@ -166,7 +176,7 @@ def close():
 
 @app.route("/ong/form/answer")
 def answer():
-    return render_template('/form_answer.html')
+    return render_template('/')
 
 
 @app.route('/auth/login')

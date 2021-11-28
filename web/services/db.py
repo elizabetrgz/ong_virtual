@@ -32,6 +32,7 @@ def init_db():
             address VARCHAR(50) NOT NULL,
             manager_name VARCHAR (50) NOT NULL,
             manager_contact VARCHAR(50) NOT NULL
+           
         )
     """)
 
@@ -217,7 +218,7 @@ def create_ongs(name, description, contact_number, email, address, manager_name,
 
     cur = get_cursor()
     cur.execute(f"""INSERT INTO ongs (
-        name, description, contact_number, address,manager_name, manager_contact)
+        name, description, contact_number,email, address,manager_name, manager_contact)
         VALUES (
         \'{name}\', \'{description}\', \'{contact_number}\', \'{email}\', \'{address}\', \'{manager_name}\', \'{manager_contact}\'
         )""")
