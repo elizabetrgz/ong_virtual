@@ -29,10 +29,10 @@ def init_db():
             description VARCHAR(500) NOT NULL,
             contact_number VARCHAR(50) NOT NULL,
             email VARCHAR(50) NOT NULL,
+            link_ong VARCHAR(50),
             address VARCHAR(50) NOT NULL,
             manager_name VARCHAR (50) NOT NULL,
             manager_contact VARCHAR(50) NOT NULL
-           
         )
     """)
 
@@ -96,7 +96,8 @@ def seed_db():
             'description': 'Trabajamos para que las personas puedan migrar sin perder sus derechos y sean respetadas en su dignidad independientemente del país en el que nacieron o en el que residen.',
             'contact_number': '099 376 605',
             'email':'idasyvueltasong@gmail.com',
-            'address': 'Juan Carlos Gómez 1540, Ciudad Vieja',
+            'link_ong':'https://idasyvueltas.org.uy/',
+            'address':'Juan Carlos Gómez 1540, Ciudad Vieja',
             'manager_name': 'Rinche Roodenburg',
             'manager_contact': '099 376 605',
         },
@@ -109,6 +110,7 @@ def seed_db():
                 description, 
                 contact_number, 
                 email,
+                link_ong,
                 address, 
                 manager_name, 
                 manager_contact
@@ -119,6 +121,7 @@ def seed_db():
                 '{ong['description']}',
                 '{ong['contact_number']}', 
                 '{ong['email']}',
+                '{ong['link_ong']}',
                 '{ong['address']}', 
                 '{ong['manager_name']}', 
                 '{ong['manager_contact']}'
@@ -206,7 +209,7 @@ def find_ong(id):
 
 
 # crea una ong en la db con los parametros indicados
-def create_ongs(name, description, contact_number, email, address, manager_name, manager_contact):
+def create_ongs(name, description, contact_number, email, link_ong, address, manager_name, manager_contact):
     # if name is None:
     #     return "The name is required", 400
     # if len(name) < 3 or len(name) > 50:
@@ -218,16 +221,16 @@ def create_ongs(name, description, contact_number, email, address, manager_name,
 
     cur = get_cursor()
     cur.execute(f"""INSERT INTO ongs (
-        name, description, contact_number,email, address,manager_name, manager_contact)
+        name, description, contact_number,email,link_ong,address,manager_name, manager_contact)
         VALUES (
-        \'{name}\', \'{description}\', \'{contact_number}\', \'{email}\', \'{address}\', \'{manager_name}\', \'{manager_contact}\'
+        \'{name}\', \'{description}\', \'{contact_number}\', \'{email}\',\'{link_ong}\',\'{address}\', \'{manager_name}\', \'{manager_contact}\'
         )""")
     cur.connection.commit()
     cur.connection.close()
     return True
 
 
-def update_ongs(id, name, description, contact_number, email, address, manager_name, manager_contact):
+def update_ongs(id, name, description, contact_number, email, link_ong, address, manager_name, manager_contact):
     # if name is None:
     #     return "The name is required", 400
     # if len(name) < 3 or len(name) > 50:
@@ -244,6 +247,7 @@ def update_ongs(id, name, description, contact_number, email, address, manager_n
                 description = \'{description}\',
                 contact_number = \'{contact_number}\', 
                 email = \'{email}\', 
+                link_ong = \'{link_ong}\',
                 address = \'{address}\', 
                 manager_name = \'{manager_name}\',
                 manager_contact = \'{manager_contact}\' 
@@ -331,6 +335,17 @@ def get_categories():
     list_categories = cur.fetchall()
     cur.connection.close()
     return list_categories
+
+
+# def find_categories(id):
+#     cur =get_cursor()
+#     cur.execute(f'SELECT * FROM categories WHERE id= "{id}"')
+#     category_list = cur.fetchall()
+#     cur.connection.close()
+#     if len(category_list) == 0:
+#         return None
+#     return category_list[0]
+
 
 
 # crea una categoria en la db con los parametros indicados

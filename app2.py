@@ -48,7 +48,7 @@ def get_ongs():
         user = db.find_user(user_id)
         return render_template('admin/list_ong.html',
             ongs = db.get_ongs(),
-            categories=db.get_categories(),
+            categories = db.get_categories(),
             name = user['name']
             )     
     
@@ -61,6 +61,7 @@ def new_ong():
         'description': '',
         'contact_number': '',
         'email':'',
+        'link_ong':'',
         'address': '',
         'manager_name': '',
         'manager_contact': ''
@@ -77,6 +78,7 @@ def create_ong():
         request.form.get('description'),
         request.form.get('contact_number'),
         request.form.get('email'),
+        request.form.get('link_ong'),
         request.form.get('address'),
         request.form.get('manager_name'),
         request.form.get('manager_contact'))
@@ -91,6 +93,7 @@ def ong_edit(id):
     # renderizar el formulario para editar la ONG
     return render_template('/admin/new_ongs.html', action='/admin/ongs/update/'+ id , ong = ong)
 
+
 @app.route('/admin/ongs/update/<id>', methods=['POST'])
 def ongs_update(id):
 
@@ -100,13 +103,13 @@ def ongs_update(id):
         request.form.get('description'),
         request.form.get('contact_number'),
         request.form.get('email'),
+        request.form.get('link_ong'),
         request.form.get('address'),
         request.form.get('manager_name'),
         request.form.get('manager_contact'))
 
     # redirecciona a la url '/admin/ongs' (donde se listan todas las ong)
     return redirect('/admin/ongs')
-
 
 
 @app.route('/admin/ongs/delete/<id>', methods=['DELETE'])
@@ -156,6 +159,7 @@ def create_ong_form():
         request.form.get('description'),
         request.form.get('contact_number'),
         request.form.get('email'),
+        request.form.get('link_ong'),
         request.form.get('address'),
         request.form.get('manager_name'),
         request.form.get('manager_contact'))
@@ -173,10 +177,6 @@ def create_ong_form():
 def close():
     return redirect('/')
 
-
-@app.route("/ong/form/answer")
-def answer():
-    return render_template('/')
 
 
 @app.route('/auth/login')
@@ -218,7 +218,6 @@ def logout ():
     ticket_value = request.cookies.get('ticket')
     db.delete_ticket(ticket_value)
     return redirect('/auth/login')
-
 
 
 
