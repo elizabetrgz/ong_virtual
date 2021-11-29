@@ -44,39 +44,9 @@ function showSlides() {
 
 // -------------------------------------------------Navar function--------------------------------------//
 
-function myFunctionDropdown() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-window.onclick = function (event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
 
 
-let ubicacionPrincipal = window.pageYOffset;
 
-window.onscroll = function() {
-  let Desplazamiento = window.pageYOffset;
-  if (ubicacionPrincipal >= Desplazamiento) {
-    document.getElementById('myDropdown').style.display ='auto';
-  }
-  else{
-    document.getElementById('myDropdown').style.display = 'none';
-  }
-  ubicacionPrincipal = Desplazamiento;
-
-}
-
-//--------------------------------------------------Modal Form-----------------------------------------------///
 
 
 

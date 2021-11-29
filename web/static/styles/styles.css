@@ -290,13 +290,16 @@ background-color: #002a58;
   cursor: pointer;
   width: 240px;
   border-radius: 10px;
-  font-size: 18px;
   margin-top: 7px;
+  font-size: 18px;
+  text-decoration: none;
 }
 
 .button:hover {
   background-color: #002a58;
 }
+
+
 
 .card-h3{
   height: 95px;

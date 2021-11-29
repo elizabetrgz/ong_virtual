@@ -10,12 +10,12 @@
 <div id="myBtnContainer">
   <h2>ONG Categorías</h2>
   <div class="myBtnContainer-cont">
-    <button class="btn active" onclick="filterSelection('all')"> Mostrar Todas</button>
-    <button class="btn" onclick="filterSelection('cars')">Familia</button>
-    <button class="btn" onclick="filterSelection('animals')">Violencia de Género</button>
-    <button class="btn" onclick="filterSelection('fruits')">Adicciones </button>
-    <button class="btn" onclick="filterSelection('colors')">Personas en Situación de Calle</button>
-    <button class="btn" onclick="filterSelection('colors')">Ollas Populares</button>
+    <button class="btn active" onclick="filterSelection('todas')"> Mostrar Todas</button>
+    <button class="btn" onclick="filterSelection('familia')">Familia</button>
+    <button class="btn" onclick="filterSelection('genero')">Violencia de Género</button>
+    <button class="btn" onclick="filterSelection('adicciones')">Adicciones </button>
+    <button class="btn" onclick="filterSelection('calles')">Personas en Situación de Calle</button>
+    <button class="btn" onclick="filterSelection('ollas')">Ollas Populares</button>
 
   </div>
 </div>
@@ -64,11 +64,11 @@
   </aside>
 
   <div class="container">
-    {% for d in ongs %} 
-    <div class="filterDiv cars">{{d['name']}}</div>
+    {% for d in ongs %}
+    <div class="filterDiv"><a href="{{d['link_ong']}}" style="text-decoration: none; color: black;">{{d['name']}} </a></div>
     {% endfor%}
-   
   </div>
+
 </div>
 {% endblock %}
 

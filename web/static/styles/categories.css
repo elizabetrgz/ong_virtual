@@ -97,13 +97,13 @@ padding: 0;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
     color: black;
     width: 100px;
-    line-height: 100px;
     text-align: center;
     margin: 2px;
     display: none;
     width: 140px;
     height: 132px;
     margin: 20px 10px;
+    padding:15px 10px ;
     border: 1px solid black;
 
   }
@@ -288,22 +288,3 @@ padding: 0;
 }
 /* ---------------------------------------------------------Footer---------------------------------------------------------- */
 
-footer{
-  background-color: #0057b4;
-  width: 100%;
-  height: 100px;
-  color:#f1f1f1;
-  text-align: center;
-}
-
-footer h4{
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding: 20px;
-  font-size: 18px;
-  font-weight: normal;
-}
-
-footer p{
-  margin: 0px;
-}
