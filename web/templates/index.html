@@ -73,18 +73,18 @@
 <section id="cat" class="categories">
   <h2>Categorías</h2>
 
-  <div class="row">
-    <div class="column">
-      <div class="card">
-        <img src="/static/img/10.jpg  " alt="Jane" style="width:100%">
-        <div class="cards">
-          <div class="card-h3">
-            <h3>Familia</h3>
-          </div>
-          <a class="button" href="/categories2">Click Aquí</a>
+  <div class="container_card">
+
+    <div class="card">
+      <img src="/static/img/10.jpg  " alt="Jane" style="width:100%">
+      <div class="cards">
+        <div class="card-h3">
+          <h3>Familia</h3>
         </div>
+        <a class="button" href="/categories2">Click Aquí</a>
       </div>
     </div>
+
 
     <div class="card">
       <img src="/static/img/17.jpg" alt="Mike" style="width:100%">
@@ -108,18 +108,18 @@
     </div>
 
 
-    <div class="card">
-      <img src="/static/img/18.jpg" alt="John" style="width:100%">
-      <div class="cards">
-        <div class="card-h3">
-          <h3> Peronas en Situación de Calle</h3>
+      <div class="card">
+        <img src="/static/img/18.jpg" alt="John" style="width:100%">
+        <div class="cards">
+          <div class="card-h3">
+            <h3> Peronas en Situación de Calle</h3>
+          </div>
+          <a class="button" href="/categories2">Click Aquí</a>
         </div>
-        <a class="button" href="/categories2">Click Aquí</a>
       </div>
-    </div>
-  </div>
+    
 
-  <div class="row">
+
 
     <div class="card">
       <img src="/static/img/12.jpg" alt="Jane" style="width:100%">
@@ -168,8 +168,7 @@
 </section>
 
 {% if ong_created == 'True' %}
-<div
-  style="
+<div style="
     position: fixed;
     top: 15px;
     z-index: 1000;
@@ -179,11 +178,9 @@
     font-size: 30px;
     border-radius: 10px;
     right: 22px;
-    display: block;"
->
+    display: block;">
   Su ONG se creo correctamente
-  <div
-    style="
+  <div style="
       border: 1px solid white;
       border-radius: 50%;
       display: block;
@@ -194,12 +191,10 @@
       position: absolute;
       top: 6px;
       right: 6px;
-      cursor: pointer;"
-    onclick="this.parentNode.style.display = 'none'"
-  >
+      cursor: pointer;" onclick="this.parentNode.style.display = 'none'">
     x
   </div>
-  
+
 
 </div>
 {% endif %}
